@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    image: ventalibra-web:latest
+    container_name: ventalibra-web
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    networks:
+      - stack-net
+
+networks:
+  stack-net:
+    external: true
+    name: stack_stack-net
