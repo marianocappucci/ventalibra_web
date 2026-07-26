@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primeros pasos — Documentación VentaLibra</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">V</div>VentaLibra</a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html" class="active">Primeros pasos</a>
+    <div class="docs-sidebar-section">Catálogo</div>
+    <a href="/docs/catalogo.html">Catálogo</a>
+    <a href="/docs/listas-de-precio.html">Listas de precio</a>
+    <div class="docs-sidebar-section">Ventas</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/stock-inventario.html">Stock e inventario</a>
+    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
+    <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
+    <div class="docs-sidebar-section">Caja y facturación</div>
+    <a href="/docs/caja.html">Caja</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <div class="docs-sidebar-section">Estándar</div>
+    <a href="/docs/reportes.html">Reportes</a>
+    <div class="docs-sidebar-section">Cuenta</div>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Primeros pasos</h1>
+    <p class="docs-lead">Guía de inicio rápido para configurar VentaLibra y empezar a vender.</p>
+
+    <h2>Acceder al sistema</h2>
+    <div class="callout">
+      <p><strong>https://tu-comercio.ventalibra.com.ar</strong></p>
+      <p>El subdominio es el identificador único de tu comercio. Si no lo recordás, contactá a soporte.</p>
+    </div>
+
+    <h2>Cargar tu catálogo</h2>
+    <ol class="step-list">
+      <li>Creá al menos una <strong>unidad</strong> (por ejemplo, "unidad" o "kilogramo" si vendés por fracción).</li>
+      <li>Cargá tus <strong>productos</strong> con precio de venta.</li>
+      <li>Opcional: agregá <strong>códigos de barra</strong> y <strong>variantes</strong> de talle/color si corresponde.</li>
+    </ol>
+
+    <h2>Cargar el stock inicial</h2>
+    <p>Andá a <strong>Stock → Ajuste</strong> y cargá la cantidad inicial de cada producto. A partir de ahí, el stock se actualiza solo con cada venta y recepción de compra.</p>
+
+    <h2>Tu primera venta</h2>
+    <ol class="step-list">
+      <li>Andá a <strong>Punto de venta</strong>.</li>
+      <li>Buscá el producto por nombre o escaneá su código de barras.</li>
+      <li>Elegí la sucursal y el medio de pago.</li>
+      <li>Confirmá — si tenés facturación activa, podés pedir la factura en este paso.</li>
+    </ol>
+
+    <div class="callout warn">
+      <p><strong>Atención:</strong> la facturación electrónica y los reportes solo están disponibles en los planes Estándar y Premium.</p>
+    </div>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/">← Introducción</a>
+      <a href="/docs/catalogo.html">Catálogo →</a>
+    </div>
+  </main>
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 VentaLibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+</body>
+</html>

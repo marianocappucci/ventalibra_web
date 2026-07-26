@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios y roles — Documentación VentaLibra</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">V</div>VentaLibra</a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+    <div class="docs-sidebar-section">Catálogo</div>
+    <a href="/docs/catalogo.html">Catálogo</a>
+    <a href="/docs/listas-de-precio.html">Listas de precio</a>
+    <div class="docs-sidebar-section">Ventas</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/stock-inventario.html">Stock e inventario</a>
+    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
+    <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
+    <div class="docs-sidebar-section">Caja y facturación</div>
+    <a href="/docs/caja.html">Caja</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <div class="docs-sidebar-section">Estándar</div>
+    <a href="/docs/reportes.html">Reportes</a>
+    <div class="docs-sidebar-section">Cuenta</div>
+    <a href="/docs/usuarios-roles.html" class="active">Usuarios y roles</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Usuarios, roles y planes</h1>
+    <p class="docs-lead">Dos roles de usuario, y tres planes donde solo la facturación (y los reportes) se gatean.</p>
+
+    <h2>Roles</h2>
+    <table class="docs-table">
+      <thead><tr><th>Rol</th><th>Puede hacer</th></tr></thead>
+      <tbody>
+        <tr><td><strong>admin</strong></td><td>Todo: catálogo, usuarios, configuración ARCA, reportes</td></tr>
+        <tr><td><strong>staff</strong></td><td>Vender desde el punto de venta y operar el catálogo/stock del día a día. No accede a reportes ni configuración ARCA.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Planes</h2>
+    <table class="docs-table">
+      <thead><tr><th>Plan</th><th>Precio</th><th>Incluye</th></tr></thead>
+      <tbody>
+        <tr><td>Básico</td><td>$20.000/mes</td><td>Catálogo, stock, punto de venta, compras, caja — nunca se gatea</td></tr>
+        <tr><td>Estándar</td><td>$35.000/mes</td><td>+ Facturación electrónica y reportes</td></tr>
+        <tr><td>Premium</td><td>$55.000/mes</td><td>Todo lo del plan Estándar, con soporte prioritario</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <p><strong>Catálogo, stock y punto de venta nunca se limitan por plan</strong> — son el núcleo del producto.</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>¿Querés cambiar de plan?</strong> Escribinos por WhatsApp desde la <a href="/#planes">página de planes</a>.</p>
+    </div>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/reportes.html">← Reportes</a>
+      <span></span>
+    </div>
+  </main>
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 VentaLibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — Documentación VentaLibra</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">V</div>VentaLibra</a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+    <div class="docs-sidebar-section">Catálogo</div>
+    <a href="/docs/catalogo.html" class="active">Catálogo</a>
+    <a href="/docs/listas-de-precio.html">Listas de precio</a>
+    <div class="docs-sidebar-section">Ventas</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/stock-inventario.html">Stock e inventario</a>
+    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
+    <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
+    <div class="docs-sidebar-section">Caja y facturación</div>
+    <a href="/docs/caja.html">Caja</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <div class="docs-sidebar-section">Estándar</div>
+    <a href="/docs/reportes.html">Reportes</a>
+    <div class="docs-sidebar-section">Cuenta</div>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Catálogo</h1>
+    <p class="docs-lead">Unidades, productos, códigos de barra y variantes — la base de todo lo demás en VentaLibra.</p>
+
+    <h2>Unidades</h2>
+    <p>Definí las unidades con las que vendés (unidad, kilogramo, litro). Una unidad puede marcarse como "vendible por fracción" para productos pesables (fiambres, verdulería) — ahí las cantidades admiten decimales.</p>
+
+    <h2>Productos</h2>
+    <p>Cargá nombre, unidad, categoría y precio de venta por defecto. Este precio es el que se usa si no hay una <a href="/docs/listas-de-precio.html">lista de precio</a> configurada para ese producto.</p>
+
+    <h2>Códigos de barra</h2>
+    <p>Agregá uno o más códigos de barra a cada producto desde su ficha. En el <a href="/docs/punto-de-venta.html">punto de venta</a>, escanear un código resuelve el producto exacto al instante.</p>
+
+    <h2>Variantes de talle y color</h2>
+    <p>Si vendés indumentaria, cada producto puede tener variantes (por ejemplo, talle S/M/L, color). <strong>Cada variante lleva su propio stock</strong>, completamente independiente del resto.</p>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> si un producto no necesita variantes (por ejemplo, un producto de almacén), simplemente no cargues ninguna — funciona igual que antes.</p>
+    </div>
+
+    <div class="docs-nav-footer">
+      <a href="/docs/primeros-pasos.html">← Primeros pasos</a>
+      <a href="/docs/listas-de-precio.html">Listas de precio →</a>
+    </div>
+  </main>
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 VentaLibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+</body>
+</html>
