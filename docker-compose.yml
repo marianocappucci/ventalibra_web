@@ -4,6 +4,8 @@ services:
     image: ventalibra-web:latest
     container_name: ventalibra-web
     restart: unless-stopped
+    environment:
+      - AUTH_UPSTREAM=ventalibra-web-auth
     ports:
       - "8085:80"
     networks:
