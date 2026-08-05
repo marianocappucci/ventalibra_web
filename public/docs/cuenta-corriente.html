@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caja — Documentación VentaLibra</title>
+  <title>Cuentas corrientes — Documentación VentaLibra</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -35,9 +35,9 @@
     <div class="docs-sidebar-section">Compras</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
-    <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
+    <a href="/docs/cuenta-corriente.html" class="active">Cuentas corrientes</a>
     <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html" class="active">Caja</a>
+    <a href="/docs/caja.html">Caja</a>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
     <div class="docs-sidebar-section">Estándar</div>
     <a href="/docs/reportes.html">Reportes</a>
@@ -48,18 +48,39 @@
   </nav>
 
   <main class="docs-content">
-    <h1>Caja</h1>
-<p class="docs-lead">Todo movimiento de venta queda registrado en caja, factures o no — el control de caja es independiente del tema fiscal.</p>
-<h2>Por qué caja no depende de facturar</h2>
-<p>A diferencia de Gestiolibra/MedLibra (donde la caja solo se toca si hay una factura de por medio), en VentaLibra <strong>toda venta cobrada</strong> genera su movimiento de caja con el medio de pago elegido, factures o no. Es una decisión de producto: en retail, controlar el efectivo/medios de cobro es una necesidad del día a día, separada de si el cliente pidió factura.</p>
+    <h1>Cuentas corrientes</h1>
+<p class="docs-lead">Quién te debe, cuánto, y el recibo de cada cobranza.</p>
+<h2>Quiénes deben</h2>
+<p>La pantalla <strong>Cuentas corrientes</strong> abre con la lista de clientes con saldo pendiente y el monto de cada uno. Un cliente aparece acá cuando una venta se cobró total o parcialmente <em>a cuenta</em>.</p>
+<h2>La cuenta de un cliente</h2>
+<p>Al entrar a un cliente se ven sus <strong>movimientos</strong> —lo que se le vendió a cuenta y lo que fue pagando— y el <strong>saldo</strong> resultante.</p>
+<h2>Registrar una cobranza</h2>
+<ol class="step-list">
+<li>Entrá a la cuenta del cliente.</li>
+<li>Cargá el <strong>monto</strong> que está pagando y el <strong>medio de pago</strong>.</li>
+<li>Confirmá. El saldo se actualiza en el momento.</li>
+</ol>
 <div class="callout">
-<p><strong>Un solo medio de pago por venta</strong> por ahora — cobros divididos (parte efectivo, parte tarjeta) quedan para una fase posterior.</p>
+<p><strong>Es un pago de deuda vieja, no una venta nueva.</strong> No genera productos ni descuenta stock: sólo cancela lo que ya se había vendido a cuenta.</p>
 </div>
-<h2>Consultar caja</h2>
-<p>El <a href="/docs/reportes.html">reporte de caja</a> (plan Estándar) resume los ingresos por período — mismo motor que usan Contalibra y Restolibra.</p>
+<h2>El recibo</h2>
+<p>Cada cobranza puede emitir su <strong>recibo</strong>: un comprobante numerado, con los datos de tu comercio y del cliente, el monto y el medio de pago. Se descarga en PDF y se puede imprimir o mandar.</p>
+<div class="callout">
+<p><strong>El recibo se emite una sola vez.</strong> Si volvés a pedirlo para el mismo pago, el sistema devuelve el que ya existía en vez de generar uno nuevo con otro número — un pago no puede tener dos recibos distintos dando vueltas.</p>
+</div>
+<p>Para que el recibo salga con tus datos y tu logo, completá la sección <strong>Empresa</strong> de <a href="/docs/configuracion.html">Configuración</a>. Si quedan vacíos, el comprobante sale sin datos del emisor.</p>
+<h2>Dónde encaja</h2>
+<table class="docs-table">
+<thead><tr><th>Si querés…</th><th>Andá a</th></tr></thead>
+<tbody>
+<tr><td>Vender a cuenta</td><td><a href="/docs/punto-de-venta.html">Punto de venta</a>, eligiendo cuenta corriente como medio</td></tr>
+<tr><td>Ver el movimiento de dinero del día</td><td><a href="/docs/caja.html">Caja</a></td></tr>
+<tr><td>Cargar los datos fiscales de un cliente</td><td><a href="/docs/clientes-proveedores.html">Clientes y proveedores</a></td></tr>
+</tbody>
+</table>
 <div class="docs-nav-footer">
 <a href="/docs/clientes-proveedores.html">← Clientes y proveedores</a>
-<a href="/docs/facturacion.html">Facturación electrónica →</a>
+<a href="/docs/caja.html">Caja →</a>
 </div>
   </main>
 </div>
