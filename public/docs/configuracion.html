@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración — Documentación VentaLibra</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none"><div class="logo-icon">V</div>VentaLibra</a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+    <div class="docs-sidebar-section">Catálogo</div>
+    <a href="/docs/catalogo.html">Catálogo</a>
+    <a href="/docs/listas-de-precio.html">Listas de precio</a>
+    <div class="docs-sidebar-section">Ventas</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/stock-inventario.html">Stock e inventario</a>
+    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
+    <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
+    <div class="docs-sidebar-section">Caja y facturación</div>
+    <a href="/docs/caja.html">Caja</a>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <div class="docs-sidebar-section">Estándar</div>
+    <a href="/docs/reportes.html">Reportes</a>
+    <div class="docs-sidebar-section">Cuenta</div>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
+    <a href="/docs/logs.html">Logs del sistema</a>
+    <a href="/docs/configuracion.html" class="active">Configuración</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Configuración</h1>
+<p class="docs-lead">Datos del comercio, logo, correo, facturación, balanza, ticket y copias de seguridad. Todo en una pantalla, sólo para administradores.</p>
+<h2>Dónde está</h2>
+<p>En el menú lateral, <strong>Configuración</strong>. Tiene seis secciones; se cambia entre ellas con las pestañas de arriba. La sección abierta queda en la dirección del navegador, así que se puede guardar un favorito o pasar el link de una sección puntual.</p>
+<div class="callout">
+<p><strong>Antes eran tres pantallas sueltas</strong> —ARCA, Balanza y Ticket— y no había dónde cargar los datos del comercio ni bajarse una copia. Ahora están todas juntas. Los enlaces viejos siguen funcionando: llevan a la sección correspondiente.</p>
+</div>
+<h2>Empresa</h2>
+<p>Los datos que encabezan los comprobantes y los tickets:</p>
+<table class="docs-table">
+<thead><tr><th>Campo</th><th>Para qué</th></tr></thead>
+<tbody>
+<tr><td>Nombre o razón social</td><td>Encabeza el ticket y los comprobantes</td></tr>
+<tr><td>CUIT</td><td>Comprobantes y facturación electrónica</td></tr>
+<tr><td>Dirección, teléfono, email</td><td>Datos de contacto del comercio</td></tr>
+<tr><td>Ingresos brutos</td><td>Dato fiscal del encabezado</td></tr>
+<tr><td>Inicio de actividades</td><td>Dato fiscal del encabezado</td></tr>
+<tr><td>Condición frente al IVA</td><td>Se elige de una lista; define qué comprobantes se pueden emitir</td></tr>
+</tbody>
+</table>
+<h3>Logo</h3>
+<p>En la misma sección. Se sube un <strong>PNG o JPG</strong>. Se puede reemplazar por otro o quitarlo en cualquier momento.</p>
+<h2>Correo</h2>
+<p>La configuración del servidor de correo saliente (SMTP): servidor, puerto, usuario, contraseña y el remitente que ven los destinatarios.</p>
+<div class="callout">
+<p><strong>Sin esto, la recuperación de contraseña no funciona.</strong> Si un cajero olvida la suya y pide el enlace de recuperación, el sistema responde que el envío de correo no está configurado.</p>
+</div>
+<p>La contraseña se guarda <strong>cifrada</strong>. Al editar el resto de los datos no hace falta volver a tipearla.</p>
+<h2>ARCA</h2>
+<p>Los datos de facturación electrónica: CUIT, punto de venta, ambiente (<strong>homologación</strong> para probar, <strong>producción</strong> para facturar de verdad) y la ubicación del certificado y la clave privada en el servidor. Ver <a href="/docs/facturacion.html">Facturación electrónica</a>.</p>
+<h2>Balanza</h2>
+<p>El formato de la etiqueta que imprime la balanza de mostrador. Incluye un <strong>probador</strong>: se escanea una etiqueta real y se ve al instante qué producto y qué peso entendió el sistema.</p>
+<div class="callout">
+<p><strong>Probá con una etiqueta de verdad antes de abrir.</strong> Es la única forma honesta de saber si la configuración quedó bien sin arriesgar un cobro equivocado.</p>
+</div>
+<h2>Ticket</h2>
+<p>Cómo sale el ticket impreso: ancho del rollo, tamaño de letra y texto al pie. Tiene vista previa — se mira antes de gastar rollo.</p>
+<h2>Datos / Backup</h2>
+<p>Acá el comercio se baja una copia de <strong>sus</strong> datos, sin depender de nadie.</p>
+<h3>Descargar una copia</h3>
+<p><strong>Descargar copia</strong> genera y baja un archivo <code>.zip</code> en el momento. Adentro van las bases de datos completas —el catálogo, el stock, las ventas y los usuarios del sistema— y los archivos, como el logo.</p>
+<div class="callout">
+<p><strong>Guardala fuera del servidor.</strong> Una copia que vive en el mismo lugar que el original no protege de nada.</p>
+</div>
+<h3>Copias guardadas en el servidor</h3>
+<p><strong>Guardar copia en el servidor</strong> deja una copia del lado del sistema, que después se puede descargar desde la lista. Se conservan las <strong>10 más recientes</strong>; al llegar a ese número se borra la más vieja.</p>
+<p>En la lista también aparecen las que hace el sistema solo: las que se llaman <code>antes_restore</code> se generan automáticamente justo antes de restaurar.</p>
+<h3>Restaurar</h3>
+<p>Reemplaza <strong>todos</strong> los datos actuales por los del archivo que se suba. Es la operación más delicada del sistema, así que:</p>
+<ul>
+<li>Elegir el archivo <strong>no</strong> restaura nada: primero aparece un aviso con el nombre del archivo y hay que confirmar.</li>
+<li>Antes de tocar nada, el sistema guarda solo una copia del estado actual y te dice cómo se llama.</li>
+<li>Si el archivo está dañado o es de otro sistema, se rechaza y <strong>no se toca ningún dato</strong>.</li>
+</ul>
+<div class="docs-nav-footer">
+<a href="/docs/logs.html">← Logs del sistema</a>
+<span></span>
+</div>
+  </main>
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 VentaLibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+</body>
+</html>
