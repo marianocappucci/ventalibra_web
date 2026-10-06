@@ -310,44 +310,41 @@
 </section>
 
 <!-- ── Footer ─────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div>
+<footer class="site-footer">
+  <div class="f-inner">
+    <div class="f-about">
       <div class="footer-brand">
-        <div class="logo-icon" style="width:28px;height:28px;border-radius:6px;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.8rem">V</div>
+        <div class="logo-icon f-logo">V</div>
         VentaLibra
       </div>
-      <div class="footer-tagline">Punto de venta y gestión para comercios de retail</div>
+      <p class="f-tagline">Punto de venta y gestión para comercios de retail: catálogo, stock, caja y facturación electrónica ARCA.</p>
+      <a href="https://wa.me/5491127752983?text=Hola,%20quiero%20info%20sobre%20VentaLibra" target="_blank" rel="noopener" class="f-cta">
+        <i class="bi bi-whatsapp"></i> Escribinos por WhatsApp
+      </a>
     </div>
-    <div style="display:flex;gap:3rem;flex-wrap:wrap">
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#475569;margin-bottom:.75rem">Sistema</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="#funciones" style="color:#94a3b8;font-size:.9rem">Funciones</a>
-          <a href="#planes" style="color:#94a3b8;font-size:.9rem">Planes</a>
-          <a href="/docs/" style="color:#94a3b8;font-size:.9rem">Documentación</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#475569;margin-bottom:.75rem">Contacto</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://wa.me/5491127752983" target="_blank" style="color:#94a3b8;font-size:.9rem"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
-          <a href="mailto:soporte@ventalibra.com.ar" style="color:#94a3b8;font-size:.9rem"><i class="bi bi-envelope me-1"></i>Email</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#475569;margin-bottom:.75rem">Familia Libra</div>
-        <div style="display:flex;flex-direction:column;gap:.4rem">
-          <a href="https://gestiolibra.com.ar" target="_blank" rel="noopener" style="color:#94a3b8;font-size:.9rem">Gestiolibra — Turnos para servicios</a>
-          <a href="https://medlibra.com.ar" target="_blank" rel="noopener" style="color:#94a3b8;font-size:.9rem">MedLibra — Turnos para salud</a>
-          <a href="https://contalibra.com.ar" target="_blank" rel="noopener" style="color:#94a3b8;font-size:.9rem">Contalibra — ERP & Facturación</a>
-          <a href="https://restolibra.com.ar" target="_blank" rel="noopener" style="color:#94a3b8;font-size:.9rem">Restolibra — Gestión gastronómica</a>
-        </div>
-      </div>
-    </div>
+    <nav class="f-col" aria-label="Sistema">
+      <div class="f-title">Sistema</div>
+      <a href="#funciones">Funciones</a>
+      <a href="#planes">Planes</a>
+      <a href="/docs/">Documentación</a>
+      <!-- demo-publica --><a href="https://demo.ventalibra.com.ar/" target="_blank" rel="noopener">Ver la demo</a>
+    </nav>
+    <nav class="f-col" aria-label="Contacto">
+      <div class="f-title">Contacto</div>
+      <a href="https://wa.me/5491127752983" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i>WhatsApp</a>
+      <a href="mailto:soporte@ventalibra.com.ar"><i class="bi bi-envelope"></i>soporte@ventalibra.com.ar</a>
+    </nav>
+    <nav class="f-col f-family" aria-label="Familia Libra">
+      <div class="f-title">Familia Libra</div>
+      <a href="https://gestiolibra.com.ar" target="_blank" rel="noopener">Gestiolibra<small>Turnos para servicios</small></a>
+      <a href="https://medlibra.com.ar" target="_blank" rel="noopener">MedLibra<small>Turnos para salud</small></a>
+      <a href="https://contalibra.com.ar" target="_blank" rel="noopener">Contalibra<small>ERP y facturación</small></a>
+      <a href="https://restolibra.com.ar" target="_blank" rel="noopener">Restolibra<small>Gestión gastronómica</small></a>
+    </nav>
   </div>
-  <div class="footer-copy">
-    © 2026 VentaLibra · parte de la familia Libra · Todos los derechos reservados
+  <div class="f-bottom">
+    <span>© 2026 VentaLibra · parte de la familia Libra · Todos los derechos reservados</span>
+    <a href="/legal/terminos.html">Términos y condiciones</a>
   </div>
 </footer>
 

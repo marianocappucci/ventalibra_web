@@ -201,6 +201,42 @@ section[id] { scroll-margin-top: 72px; }
 .browser-body { overflow-x: auto; }
 .browser-body img { display: block; width: 100%; height: auto; }
 .showcase-cta { text-align: center; margin-top: 2.5rem; }
+
+/* Pie de pagina (solo VentaLibra) */
+.site-footer { padding: 4rem 2rem 2rem; background: #140b03;
+               border-top: 3px solid var(--brand); }
+.f-inner { max-width: 1100px; margin: 0 auto; display: grid;
+           grid-template-columns: 1.6fr 1fr 1.1fr 1.3fr; gap: 2.5rem; }
+.f-logo { width: 28px; height: 28px; border-radius: 6px; background: var(--brand);
+          display: inline-flex; align-items: center; justify-content: center;
+          color: #fff; font-weight: 900; font-size: .8rem; }
+.f-tagline { margin: 1rem 0 1.5rem; max-width: 300px; font-size: .9rem;
+             line-height: 1.65; color: #a8a29e; }
+.f-cta { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.1rem;
+         border: 1px solid rgba(251,191,36,.45); border-radius: 10px; color: #fcd34d;
+         font-size: .9rem; font-weight: 600; transition: background .15s; }
+.f-cta:hover { background: rgba(251,191,36,.1); text-decoration: none; }
+.f-col { display: flex; flex-direction: column; gap: .6rem; }
+.f-title { margin-bottom: .4rem; font-size: .75rem; font-weight: 700;
+           letter-spacing: .1em; text-transform: uppercase; color: #a8a29e; }
+.f-col a { display: block; color: #d6d3d1; font-size: .92rem; transition: color .15s; }
+.f-col a:hover { color: #fbbf24; text-decoration: none; }
+.f-col a i { margin-right: .5rem; color: #a8a29e; }
+.f-family a small { display: block; font-size: .78rem; color: #918a84; margin-top: .1rem; }
+.f-bottom { max-width: 1100px; margin: 3rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid #292017; display: flex; flex-wrap: wrap;
+            justify-content: space-between; gap: .75rem; font-size: .82rem;
+            color: #a8a29e; }
+.f-bottom a { color: #a8a29e; }
+.f-bottom a:hover { color: #fbbf24; text-decoration: none; }
+@media (max-width: 960px) {
+  .f-inner { grid-template-columns: 1fr 1fr; }
+  .f-about { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .site-footer { padding: 3rem 1.25rem 1.5rem; }
+  .f-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
 @media (max-width: 960px) {
   .highlights { grid-template-columns: repeat(2, 1fr); }
   .highlight:nth-child(3) { border-left: none; }
