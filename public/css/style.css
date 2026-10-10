@@ -260,7 +260,7 @@ section[id] { scroll-margin-top: 72px; }
 .site-footer { padding: 4rem 2rem 2rem; background: var(--p-footer-bg);
                border-top: 3px solid var(--brand); }
 .f-inner { max-width: 1100px; margin: 0 auto; display: grid;
-           grid-template-columns: 1.6fr 1fr 1.1fr 1.3fr; gap: 2.5rem; }
+           grid-template-columns: 1.6fr 1fr 1.1fr; gap: 2.5rem; }
 .f-logo { width: 28px; height: 28px; display: block; flex-shrink: 0; }
 .f-tagline { margin: 1rem 0 1.5rem; max-width: 300px; font-size: .9rem;
              line-height: 1.65; color: var(--p-on-dark-muted); }
@@ -275,7 +275,6 @@ section[id] { scroll-margin-top: 72px; }
 .f-col a { display: block; color: var(--p-on-dark-text); font-size: .92rem; transition: color .15s; }
 .f-col a:hover { color: var(--p-on-dark-accent); text-decoration: none; }
 .f-col a i { margin-right: .5rem; color: var(--p-on-dark-muted); }
-.f-family a small { display: block; font-size: .78rem; color: var(--p-on-dark-faint); margin-top: .1rem; }
 .f-bottom { max-width: 1100px; margin: 3rem auto 0; padding-top: 1.5rem;
             border-top: 1px solid var(--p-footer-line); display: flex; flex-wrap: wrap;
             justify-content: space-between; gap: .75rem; font-size: .82rem;
