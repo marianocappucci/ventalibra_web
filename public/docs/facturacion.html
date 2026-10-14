@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facturación electrónica — Documentación VentaLibra</title>
+  <meta name="description" content="Factura opcional por venta vía ARCA: tipos, emisión y nota de crédito.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,46 +29,85 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html" class="active">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Facturación electrónica</h1>
-<p class="docs-lead">Factura opcional por venta, vía ARCA. Incluida en el plan único.</p>
-<h2>Configurar ARCA</h2>
-<p>Un administrador carga la configuración fiscal en <strong>Configuración → ARCA</strong>: CUIT, punto de venta, ambiente y certificado.</p>
+<p class="docs-lead">Factura opcional por venta, emitida por ARCA en el momento, desde el cobro del POS o desde el detalle de la venta. Incluida en el plan único.</p>
+<h2>Cómo se decide facturar</h2>
+<p>La facturación es <strong>opcional y por venta</strong>: nada se factura solo porque el cliente tenga CUIT cargado. La caja, en cambio, se mueve siempre (ver <a href="/docs/caja.html">Caja y turnos</a>). Se factura el total de la venta en una sola factura.</p>
+<ul>
+<li><strong>Al cobrar:</strong> tildá <strong>Emitir factura</strong> en el cobro del POS.</li>
+<li><strong>Después:</strong> en el detalle de la venta, <strong>Generar factura</strong> (también con <kbd>F9</kbd> desde el POS, para la última venta).</li>
+<li><strong>Cobros por QR:</strong> si activaste <strong>Facturar automáticamente las ventas cobradas por QR</strong>, la factura sale sola al acreditarse el pago. Ver <a href="/docs/mercadopago.html">Cobro con QR</a>.</li>
+</ul>
+<p>Si el casillero <strong>Emitir factura</strong> figura deshabilitado con «no está habilitada en esta instancia», la facturación está apagada en tu instancia: escribinos para activarla.</p>
+<h2>Antes de emitir la primera</h2>
+<ol class="step-list">
+<li>Completá la <strong>Empresa</strong> en <strong>Configuración</strong>: CUIT, domicilio y <strong>Condición de IVA</strong>.</li>
+<li>Cargá la configuración de <strong>ARCA / AFIP</strong>: CUIT, punto de venta, certificado y clave privada.</li>
+<li>Probá primero en <strong>Homologación</strong> y pasá a <strong>Producción</strong> cuando todo ande.</li>
+<li>Tocá <strong>Probar conexión</strong>.</li>
+</ol>
+<p>El detalle está en <a href="/docs/configuracion.html">Configuración</a>.</p>
 <div class="callout warn">
-<p><strong>Atención:</strong> requiere certificado digital vigente emitido por AFIP/ARCA.</p>
+<p><strong>Requiere un certificado digital vigente emitido por ARCA.</strong> Los certificados duran dos años: la pantalla de ARCA muestra el vencimiento y avisa antes. Si vence, la facturación deja de funcionar sin que nadie haya tocado nada.</p>
 </div>
-<h2>Factura opcional, no automática</h2>
-<p>Al confirmar una venta, quien está en la caja decide si emite factura o no — no se factura automáticamente solo porque el cliente tiene CUIT cargado. Es una única factura por el total de la venta (no hay seña/saldo como en Gestiolibra/MedLibra).</p>
+<h2>Qué tipo de factura sale</h2>
 <table class="docs-table">
-<thead><tr><th>Situación</th><th>Tipo de factura</th></tr></thead>
+<thead><tr><th>Tu condición</th><th>Condición del cliente</th><th>Tipo</th></tr></thead>
 <tbody>
-<tr><td>Cliente Responsable Inscripto</td><td>Factura A</td></tr>
-<tr><td>Cualquier otro caso, incluido sin cliente</td><td>Factura B (Consumidor Final)</td></tr>
+<tr><td>Responsable Inscripto</td><td>Responsable Inscripto o Monotributista</td><td>Factura A</td></tr>
+<tr><td>Responsable Inscripto</td><td>Consumidor Final, Exento o sin cliente</td><td>Factura B</td></tr>
+<tr><td>Monotributista</td><td>Cualquiera</td><td>Factura C</td></tr>
 </tbody>
 </table>
+<ul>
+<li>Una <strong>venta sin cliente</strong> se factura a <strong>Consumidor Final</strong> sin crear ningún cliente: un mostrador con cientos de ventas por día no llenaría la lista.</li>
+<li>La <strong>Factura C</strong> no discrimina IVA. En la A y la B el IVA sale discriminado, desagregado de los precios finales de la venta.</li>
+<li>El comprobante lleva la <strong>condición de venta</strong> según el medio de pago: contado, transferencia, tarjeta de débito o crédito, cuenta corriente, etc.</li>
+<li>Se numera con el <strong>punto de venta</strong> de la caja donde se cobró; si la caja no tiene uno propio, el de la empresa.</li>
+</ul>
+<h2>Después de emitir</h2>
+<ul>
+<li><strong>Es idempotente:</strong> una venta que ya tiene factura no se emite de nuevo.</li>
+<li>Si ARCA rechaza o falla, <strong>la venta queda cobrada igual</strong> y el sistema muestra el motivo. Corregí lo que falte (por ejemplo, el CUIT del cliente) y reintentá con <strong>Generar factura</strong> desde el detalle.</li>
+<li>La factura emitida figura en la venta (<kbd>Factura generada: …</kbd>) y en la pestaña <strong>Facturadas</strong> de <strong>Ventas</strong>.</li>
+<li>Con <strong>Homologación</strong> como ambiente, los comprobantes son de prueba y no valen fiscalmente.</li>
+</ul>
+<h2>Corregir una factura: la nota de crédito</h2>
+<p>Una factura con CAE no se borra ni se edita: se acredita con una <strong>nota de crédito</strong>, total o por un importe, desde el detalle de la venta. La emite sólo el administrador, y hace falta antes de poder anular una venta facturada. Ver <a href="/docs/ventas.html">Ventas y devoluciones</a>.</p>
+<h2>Libros de IVA</h2>
+<p>Las facturas y notas emitidas alimentan el <strong>IVA Ventas</strong> de los libros que se presentan ante ARCA. Ver <a href="/docs/reportes.html">Reportes</a>.</p>
 <div class="docs-nav-footer">
-<a href="/docs/caja.html">← Caja</a>
+<a href="/docs/cuenta-corriente.html">← Cuentas corrientes</a>
 <a href="/docs/reportes.html">Reportes →</a>
 </div>
   </main>

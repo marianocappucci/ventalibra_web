@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vencimientos y lotes — Documentación VentaLibra</title>
+  <meta name="description" content="Marcar productos que vencen, cargar lotes, FEFO, avisos y baja de un lote.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none"><img src="/img/marca.svg" alt="" class="logo-icon" width="32" height="32">VentaLibra</a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+    <a href="/legal/terminos">Términos</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
+    <a href="/docs/catalogo.html">Catálogo</a>
+    <a href="/docs/listas-de-precio.html">Listas de precio</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
+    <a href="/docs/stock-inventario.html">Stock e inventario</a>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html" class="active">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
+    <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
+    <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
+    <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
+    <div class="docs-sidebar-section">Cuenta</div>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
+    <a href="/docs/logs.html">Logs del sistema</a>
+    <a href="/docs/configuracion.html">Configuración</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Vencimientos y lotes</h1>
+<p class="docs-lead">Saber qué lote vence primero, venderlo antes, avisar lo que está vencido o por vencer y dar de baja lo que no se vendió.</p>
+<h2>Cómo funciona</h2>
+<ul>
+<li>Un <strong>lote</strong> es una partida de un producto con su código y su fecha de vencimiento. El stock de un producto que vence se reparte en lotes.</li>
+<li>Sólo entran al control los productos <strong>marcados como perecederos</strong>. Los demás se manejan como siempre.</li>
+<li>Las salidas siguen el criterio <strong>FEFO</strong> (vence primero, sale primero): al vender, anular, devolver, transferir o ajustar, el sistema descuenta del lote que vence antes. El stock «sin lote» sale último.</li>
+<li>Un producto <strong>vencido se puede vender</strong>: el sistema avisa, no bloquea.</li>
+</ul>
+<h2>1. Marcar los productos que vencen</h2>
+<p>Lo hace el encargado o el administrador, de dos maneras:</p>
+<ul>
+<li>En el producto (<strong>Catálogo y precios → Productos</strong>), con el interruptor <strong>Vence (maneja lotes y fecha de vencimiento)</strong>.</li>
+<li>En esta misma pantalla, sección <strong>Productos que vencen</strong>: buscá el producto y tocá <strong>Marcar como perecedero</strong>. <strong>Dejar de marcar como perecedero</strong> lo saca del control; los lotes que ya tiene no se tocan.</li>
+</ul>
+<h2>2. Cargar lotes y fechas</h2>
+<p>Hay tres caminos, según de dónde viene la mercadería:</p>
+<table class="docs-table">
+<thead><tr><th>Situación</th><th>Cómo</th></tr></thead>
+<tbody>
+<tr><td>Llega una compra</td><td>Al <strong>Recibir mercadería</strong> de una <a href="/docs/compras-proveedores.html">orden de compra</a>, cada línea de un producto marcado pide <strong>Lote</strong> y <strong>Vencimiento</strong>. Completá los dos o dejá los dos vacíos.</td></tr>
+<tr><td>Sumar mercadería nueva con su lote</td><td><strong>Cargar stock con lote</strong>: elegís el producto, el <strong>Depósito</strong>, la <strong>Variante</strong> si corresponde, el <strong>Lote</strong>, la <strong>Fecha de vencimiento</strong> y la <strong>Cantidad</strong>. Suma stock nuevo ya con su lote.</td></tr>
+<tr><td>Ya tenés stock sin fecha</td><td><strong>Asignar vencimiento</strong>, en la tabla <strong>Sin lote / sin fecha</strong>: le ponés <strong>Lote</strong>, <strong>Fecha de vencimiento</strong> y <strong>Cantidad</strong> a una parte del saldo sin lote. El stock total no cambia: esa parte pasa de «sin lote» al lote y la fecha que elegiste.</td></tr>
+</tbody>
+</table>
+<p>Cada carga tiene un campo <strong>Nota</strong> opcional. Si se corta la conexión en medio de una carga, el sistema guarda el intento y te ofrece <strong>Reenviar el intento anterior</strong>: si ya estaba registrado, no se duplica.</p>
+<h2>La pantalla</h2>
+<p>Entrá por <strong>Inventario → Stock → Vencimientos y lotes</strong>. La ven el administrador, el encargado y el depósito.</p>
+<h3>Qué vence pronto</h3>
+<ul>
+<li><strong>Filtros:</strong> <strong>Sucursal</strong> (o <strong>Toda la instancia</strong>), <strong>Categoría</strong>, <strong>Días de anticipación</strong> (de 1 a 365, por defecto 15) y <strong>Incluir vencidos</strong>.</li>
+<li><strong>Resumen:</strong> cuántos lotes hay, cuántos por vencer y cuántos vencidos, con sus unidades.</li>
+<li><strong>Tabla:</strong> producto, código, sucursal y depósito, lote, fecha, días para vencer (<kbd>Vencido hace 3 días</kbd>, <kbd>Vence en 5 días</kbd>) y saldo. Se ordena tocando el título de cada columna; <strong>Orden por vencimiento</strong> vuelve al orden de siempre.</li>
+<li><strong>CSV</strong> baja el mismo listado para abrirlo en una planilla.</li>
+</ul>
+<h3>Sin lote / sin fecha</h3>
+<p>El stock de un producto marcado que no tiene lote ni fecha no se puede avisar. Esta tabla lo lista con su <strong>Situación</strong>:</p>
+<ul>
+<li><kbd>Sin fecha</kbd>: hay stock sin lote ni fecha. Asignale un lote y un vencimiento.</li>
+<li><kbd>Salidas sin lote</kbd>: hubo ventas, devoluciones o ajustes anteriores que restaron de «sin lote» sin descontar ningún lote (por eso el saldo figura negativo). Los lotes de ese producto en ese depósito pueden mostrar más de lo que hay: contrastá con el conteo físico.</li>
+</ul>
+<div class="callout warn">
+<p><strong>El aviso ámbar de la pantalla es permanente.</strong> Recuerda que las ventas, devoluciones y transferencias anteriores al descuento por lote, y los ajustes de stock, restaron del saldo «sin lote», así que el saldo de un lote puede ser mayor al real. No es un error nuevo: es el motivo para contar físicamente antes de decidir una baja.</p>
+</div>
+<h2>Dar de baja un lote (merma)</h2>
+<p>Se usa para retirar del stock lo que venció o se rompió. La hacen el <strong>administrador, el encargado y el depósito</strong>.</p>
+<ol class="step-list">
+<li>En la tabla de lotes, tocá <strong>Dar de baja (merma)</strong> en la fila del lote.</li>
+<li>El diálogo muestra el producto, el lote, la fecha, el depósito y el saldo. Escribí la <strong>Cantidad a dar de baja</strong> (hasta el saldo).</li>
+<li>Dejá el <strong>Motivo</strong> (viene <kbd>vencimiento</kbd>) o cambialo, y agregá una <strong>Nota</strong> si hace falta.</li>
+<li>Tocá <strong>Confirmar</strong>.</li>
+</ol>
+<ul>
+<li>El sistema descuenta sólo de <strong>ese lote</strong> y avisa el saldo que queda.</li>
+<li>Si el producto tiene un saldo «sin lote» <strong>negativo</strong> en ese depósito, la baja se rechaza con <kbd>conciliá con el conteo físico antes de dar de baja</kbd>: hacé el conteo y ajustá el stock primero.</li>
+<li>Se puede dar de baja un lote de un depósito que ya está inactivo (la tabla lo marca como <kbd>Depósito inactivo</kbd>): las existencias siguen siendo existencias.</li>
+<li>Si tocás dos veces <strong>Confirmar</strong> o reintentás tras un corte, no se descuenta dos veces: el sistema responde que <kbd>ya estaba registrado</kbd>.</li>
+</ul>
+<h2>El aviso en el punto de venta</h2>
+<p>Antes de cobrar, el POS consulta de qué lote saldría cada línea. Si hay mercadería <strong>vencida</strong> o que <strong>vence dentro de 15 días</strong>, pregunta <strong>¿Vender igual?</strong> con una línea por lote. Después de cobrar, los avisos también quedan a la vista en la pantalla de venta cobrada. Ver <a href="/docs/punto-de-venta.html">Punto de venta</a>.</p>
+<h2>Y la reposición</h2>
+<p>En la <a href="/docs/reposicion.html">Reposición sugerida</a>, lo que está en un lote vencido <strong>no cuenta como stock</strong>, y un interruptor opcional descuenta también lo que vence antes de poder venderse.</p>
+<div class="docs-nav-footer">
+<a href="/docs/sucursales-y-depositos.html">← Sucursales y depósitos</a>
+<a href="/docs/reposicion.html">Reposición sugerida →</a>
+</div>
+  </main>
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 VentaLibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+</body>
+</html>

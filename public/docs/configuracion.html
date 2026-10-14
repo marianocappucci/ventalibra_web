@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuración — Documentación VentaLibra</title>
+  <meta name="description" content="Empresa, ARCA, MercadoPago, correo, balanza, ticket, unidades, categorías y copias de seguridad.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,79 +29,110 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html" class="active">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Configuración</h1>
-<p class="docs-lead">Datos del comercio, logo, correo, facturación, balanza, ticket y copias de seguridad. Todo en una pantalla, sólo para administradores.</p>
+<p class="docs-lead">Datos del comercio, integraciones (ARCA, MercadoPago, correo), balanza, ticket, unidades, categorías y copias de seguridad. Todo en una pantalla, sólo para administradores.</p>
 <h2>Dónde está</h2>
-<p>En el menú lateral, <strong>Configuración</strong>. Tiene seis secciones; se cambia entre ellas con las pestañas de arriba. La sección abierta queda en la dirección del navegador, así que se puede guardar un favorito o pasar el link de una sección puntual.</p>
-<div class="callout">
-<p><strong>Antes eran tres pantallas sueltas</strong> —ARCA, Balanza y Ticket— y no había dónde cargar los datos del comercio ni bajarse una copia. Ahora están todas juntas. Los enlaces viejos siguen funcionando: llevan a la sección correspondiente.</p>
-</div>
+<p>En <strong>Administración → Configuración</strong>. Se cambia entre secciones con las pestañas de arriba: <strong>Empresa</strong>, <strong>Integraciones</strong>, <strong>Balanza</strong>, <strong>Ticket</strong>, <strong>Unidades de medida</strong>, <strong>Categorías</strong> y <strong>Datos / Backup</strong>. La sección abierta queda en la dirección del navegador, así que se puede guardar un favorito o pasar el enlace de una sección puntual. A la derecha de la barra está el botón <strong>Backup rápido</strong>, que baja una copia sin entrar a la pestaña.</p>
 <h2>Empresa</h2>
-<p>Los datos que encabezan los comprobantes y los tickets:</p>
+<p>Los datos que encabezan los comprobantes y los tickets.</p>
 <table class="docs-table">
 <thead><tr><th>Campo</th><th>Para qué</th></tr></thead>
 <tbody>
-<tr><td>Nombre o razón social</td><td>Encabeza el ticket y los comprobantes</td></tr>
+<tr><td>Nombre</td><td>Encabeza el ticket y los comprobantes; es también el que se ve debajo de «VentaLibra» en el menú</td></tr>
 <tr><td>CUIT</td><td>Comprobantes y facturación electrónica</td></tr>
-<tr><td>Dirección, teléfono, email</td><td>Datos de contacto del comercio</td></tr>
-<tr><td>Ingresos brutos</td><td>Dato fiscal del encabezado</td></tr>
-<tr><td>Inicio de actividades</td><td>Dato fiscal del encabezado</td></tr>
-<tr><td>Condición frente al IVA</td><td>Se elige de una lista; define qué comprobantes se pueden emitir</td></tr>
+<tr><td>Dirección, Teléfono, Email</td><td>Datos de contacto del comercio</td></tr>
+<tr><td>Ingresos Brutos, Inicio de actividades</td><td>Datos fiscales del encabezado</td></tr>
+<tr><td>Condición de IVA</td><td><strong>Monotributista</strong> (emite Factura C), <strong>Responsable Inscripto</strong> (emite Factura A y B) o <strong>IVA Exento</strong> (emite Factura B). Define qué comprobantes se emiten.</td></tr>
+<tr><td>Logo</td><td>PNG o JPG, para los comprobantes. Se puede reemplazar o <strong>Quitar</strong>.</td></tr>
 </tbody>
 </table>
-<h3>Logo</h3>
-<p>En la misma sección. Se sube un <strong>PNG o JPG</strong>. Se puede reemplazar por otro o quitarlo en cualquier momento.</p>
-<h2>Correo</h2>
-<p>La configuración del servidor de correo saliente (SMTP): servidor, puerto, usuario, contraseña y el remitente que ven los destinatarios.</p>
+<p>Tocá <strong>Guardar datos de empresa</strong>. Si cambiás el nombre, el menú lo toma en el próximo ingreso o al recargar.</p>
+<h2>Integraciones</h2>
+<p>Las tres viven en una sub-navegación lateral: <strong>MercadoPago</strong>, <strong>ARCA / AFIP</strong> y <strong>Email / SMTP</strong>.</p>
+<h3>ARCA / AFIP</h3>
+<p>La facturación electrónica. Tiene tres pestañas: <strong>General</strong>, <strong>Homologación</strong> y <strong>Producción</strong>, cada una con su estado (<kbd>Sin cargar</kbd>, <kbd>Cargado</kbd>, <kbd>En uso</kbd>, <kbd>Vence pronto</kbd>, <kbd>Vencido</kbd>…).</p>
+<ol class="step-list">
+<li>En <strong>General</strong> cargá el <strong>CUIT</strong>, el <strong>Punto de venta</strong> y el <strong>Alias</strong> del certificado, y elegí el <strong>Ambiente para facturar</strong>: <strong>Homologación (pruebas)</strong> o <strong>Producción</strong>. Tocá <strong>Guardar ARCA</strong>.</li>
+<li>En la pestaña del ambiente, subí el <strong>Certificado (.crt)</strong> y la <strong>Clave privada (.key)</strong>. El sistema los valida antes de guardarlos, comprueba que sean pareja y muestra el vencimiento.</li>
+<li>Tocá <strong>Probar conexión</strong>: si anda, dice <kbd>Autenticado OK</kbd>.</li>
+</ol>
+<p><strong>Los dos ambientes se guardan por separado:</strong> cargar el de prueba no pisa el de producción. Se factura con el que elegiste en <strong>Ambiente para facturar</strong>, y la pantalla dice cuál es el que está en uso.</p>
+<h4>Si todavía no tenés certificado</h4>
+<p>Usá <strong>Generar pedido de certificado</strong> en la pestaña del ambiente: escribí el <strong>CUIT</strong> (sin guiones), la <strong>Razón social</strong> (sin tildes) y un <strong>Alias</strong> (letras y números). El sistema genera el pedido y la clave privada, que <strong>no sale nunca del servidor</strong>. Después:</p>
+<ol class="step-list">
+<li>Descargá el archivo <kbd>.csr</kbd> con <strong>Descargar el .csr</strong>.</li>
+<li>Ingresá a ARCA con clave fiscal y abrí «Administración de Certificados Digitales». Agregá un alias nuevo con ese mismo nombre y subí el <kbd>.csr</kbd>. Descargá el certificado <kbd>.crt</kbd> que genera.</li>
+<li>En «Administrador de Relaciones de Clave Fiscal» creá una <strong>nueva relación</strong> con el servicio de facturación electrónica.</li>
+<li>Subí el <kbd>.crt</kbd> en esta pantalla: no hace falta cargar la clave privada, ya está guardada.</li>
+</ol>
+<p>Las pantallas traen los pasos (<strong>Ver los pasos</strong>) con tu CUIT y tu alias ya completados. Para probar en homologación se usa «WSASS - Autogestión Certificados Homologación».</p>
+<p>La sección <strong>Factura de crédito electrónica MiPyME</strong> de esta pantalla (CBU y modalidad de transmisión) no interviene en las facturas del mostrador.</p>
+<h3>MercadoPago</h3>
+<p>Credenciales del cobro por QR: <strong>Access Token</strong>, <strong>User ID (QR)</strong>, <strong>Descripción del cobro</strong>, <strong>Alícuota IVA</strong>, facturación automática y <strong>Probar conexión</strong>. El detalle y el POS ID de cada caja están en <a href="/docs/mercadopago.html">Cobro con QR de MercadoPago</a>.</p>
+<h3>Email / SMTP</h3>
+<p>El servidor de correo saliente: <strong>Servidor</strong>, <strong>Puerto</strong>, <strong>Usuario</strong>, <strong>Contraseña</strong>, <strong>Remitente</strong> y <strong>Nombre del remitente</strong>. <strong>Probar conexión</strong> verifica que se pueda enviar.</p>
 <div class="callout">
-<p><strong>Sin esto, la recuperación de contraseña no funciona.</strong> Si un cajero olvida la suya y pide el enlace de recuperación, el sistema responde que el envío de correo no está configurado.</p>
+<p><strong>Sin esto, la recuperación de contraseña no funciona.</strong> Si alguien olvida la suya y pide el enlace, el sistema responde que el envío de correo no está configurado. La contraseña se guarda cifrada; al editar el resto de los datos no hace falta volver a escribirla (se deja vacía para no cambiarla). Con una cuenta de Gmail hace falta una <strong>contraseña de aplicación</strong>: la pantalla trae el paso a paso.</p>
 </div>
-<p>La contraseña se guarda <strong>cifrada</strong>. Al editar el resto de los datos no hace falta volver a tipearla.</p>
-<h2>ARCA</h2>
-<p>Los datos de facturación electrónica: CUIT, punto de venta, ambiente (<strong>homologación</strong> para probar, <strong>producción</strong> para facturar de verdad) y la ubicación del certificado y la clave privada en el servidor. Ver <a href="/docs/facturacion.html">Facturación electrónica</a>.</p>
 <h2>Balanza</h2>
-<p>El formato de la etiqueta que imprime la balanza de mostrador. Incluye un <strong>probador</strong>: se escanea una etiqueta real y se ve al instante qué producto y qué peso entendió el sistema.</p>
-<div class="callout">
-<p><strong>Probá con una etiqueta de verdad antes de abrir.</strong> Es la única forma honesta de saber si la configuración quedó bien sin arriesgar un cobro equivocado.</p>
-</div>
+<p>El formato de las etiquetas que imprime la balanza de mostrador, con un probador integrado. Ver <a href="/docs/balanza.html">Balanza de mostrador</a>.</p>
 <h2>Ticket</h2>
-<p>Cómo sale el ticket impreso: ancho del rollo, tamaño de letra y texto al pie. Tiene vista previa — se mira antes de gastar rollo.</p>
+<p>Cómo sale el ticket impreso.</p>
+<ul>
+<li><strong>Ancho del papel</strong>: <kbd>80 mm</kbd> o <kbd>58 mm</kbd>, según el rollo de tu impresora.</li>
+<li><strong>Tamaño de letra</strong>: entre 6 y 14 puntos.</li>
+<li><strong>Texto al pie</strong>: por ejemplo, «¡Gracias por su compra!».</li>
+</ul>
+<p>La vista previa <strong>Cómo va a salir</strong> te deja mirar el ticket antes de gastar rollo. Tocá <strong>Guardar</strong>.</p>
+<h2>Unidades de medida</h2>
+<p>Las unidades con las que vendés. Cada una tiene <strong>Código</strong>, <strong>Nombre</strong>, <strong>Fracción</strong> y <strong>Decimales</strong>. Se agregan con <strong>+ Nueva unidad</strong>. Ver <a href="/docs/catalogo.html">Catálogo</a>.</p>
+<h2>Categorías</h2>
+<p>Las categorías de productos: <strong>+ Nueva categoría</strong>, <strong>Editar categoría</strong> y activar o desactivar. Un producto sólo puede llevar una categoría que exista y esté activa.</p>
 <h2>Datos / Backup</h2>
 <p>Acá el comercio se baja una copia de <strong>sus</strong> datos, sin depender de nadie.</p>
 <h3>Descargar una copia</h3>
-<p><strong>Descargar copia</strong> genera y baja un archivo <code>.zip</code> en el momento. Adentro van las bases de datos completas —el catálogo, el stock, las ventas y los usuarios del sistema— y los archivos, como el logo.</p>
-<div class="callout">
-<p><strong>Guardala fuera del servidor.</strong> Una copia que vive en el mismo lugar que el original no protege de nada.</p>
+<p><strong>Descargar copia ahora</strong> genera y baja un archivo <kbd>.zip</kbd> en el momento, con la base de datos completa (catálogo, stock, ventas, usuarios) y los archivos del sistema, como el logo y, si facturás, el certificado y la clave privada de ARCA.</p>
+<div class="callout warn">
+<p><strong>Guardala fuera del servidor y como tu clave fiscal.</strong> La copia contiene la clave privada de ARCA, que permite facturar en tu nombre: no la mandes por mail ni la compartas. Y una copia que vive en el mismo lugar que el original no protege de nada.</p>
 </div>
 <h3>Copias guardadas en el servidor</h3>
-<p><strong>Guardar copia en el servidor</strong> deja una copia del lado del sistema, que después se puede descargar desde la lista. Se conservan las <strong>10 más recientes</strong>; al llegar a ese número se borra la más vieja.</p>
-<p>En la lista también aparecen las que hace el sistema solo: las que se llaman <code>antes_restore</code> se generan automáticamente justo antes de restaurar.</p>
+<p><strong>Guardar copia en el servidor</strong> deja una copia del lado del sistema, que después se descarga desde la lista (<strong>Copias guardadas en el servidor</strong>). Se conservan las <strong>10 más recientes</strong> y se generan también todas las noches, y justo antes de cada restauración.</p>
+<h3>Copia externa</h3>
+<p>Con el adicional <strong>Resguardo externo</strong>, las copias se suben también a tu nube: desde <strong>Copia externa</strong> tocá <strong>Conectar Google Drive</strong> o <strong>Conectar Dropbox</strong>, dá el permiso y volvé. La copia viaja y se guarda cifrada. La pantalla dice si está <strong>al día</strong> o <strong>con problemas</strong>. <strong>Desconectar</strong> deja de subirlas; las que ya están allá no se borran.</p>
 <h3>Restaurar</h3>
-<p>Reemplaza <strong>todos</strong> los datos actuales por los del archivo que se suba. Es la operación más delicada del sistema, así que:</p>
+<p>Reemplaza <strong>todos</strong> los datos actuales por los del archivo que subas. Es la operación más delicada del sistema:</p>
 <ul>
-<li>Elegir el archivo <strong>no</strong> restaura nada: primero aparece un aviso con el nombre del archivo y hay que confirmar.</li>
+<li>Elegir el archivo <strong>no</strong> restaura nada: primero aparece <strong>¿Estás seguro?</strong> con el nombre del archivo y hay que confirmar con <strong>Restaurar</strong>.</li>
 <li>Antes de tocar nada, el sistema guarda solo una copia del estado actual y te dice cómo se llama.</li>
 <li>Si el archivo está dañado o es de otro sistema, se rechaza y <strong>no se toca ningún dato</strong>.</li>
 </ul>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Punto de venta — Documentación VentaLibra</title>
+  <meta name="description" content="Abrir turno, escanear, cobrar con uno o varios medios, avisos de precio y de vencimiento, y cerrar el turno.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,48 +29,170 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html" class="active">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html" class="active">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Punto de venta</h1>
-<p class="docs-lead">Vender rápido: buscá por nombre o escaneá el código de barras, agregá a la venta y confirmá.</p>
-<h2>Armar una venta</h2>
+<p class="docs-lead">La pantalla del cajero: escanear, cobrar y seguir. Está pensada para trabajar con lector de código de barras y teclado, sin mouse.</p>
+<h2>Antes de vender: el turno</h2>
+<p>Sin un <strong>turno de caja abierto</strong> el sistema no cobra. Al entrar a <strong>Mostrador → POS (Caja)</strong> sin turno aparece la pantalla <strong>Abrir turno</strong>:</p>
 <ol class="step-list">
-<li>Andá a <strong>Punto de venta</strong>.</li>
-<li>Buscá el producto por nombre, o escaneá su código de barras — si el código no resuelve nada, el sistema cae automáticamente a la búsqueda por nombre.</li>
-<li>Si el producto tiene variantes, elegí la variante correspondiente (talle/color).</li>
-<li>Ajustá la cantidad (admite decimales para productos pesables).</li>
-<li>Repetí para cada producto de la venta.</li>
+<li>Elegí la <strong>Sucursal</strong> y la <strong>Caja</strong>. Las cajas con un turno abierto figuran como <kbd>(en uso)</kbd> y no se pueden elegir.</li>
+<li>Escribí el <strong>Efectivo inicial en caja</strong>: lo que hay en el cajón ahora. Es la base contra la que se arquea al cerrar.</li>
+<li>Tocá <strong>Abrir turno</strong>.</li>
 </ol>
-<h2>Confirmar la venta</h2>
-<p>Elegí la sucursal y el <strong>medio de pago</strong> (obligatorio, incluso si no facturás — ver <a href="/docs/caja.html">Caja</a>). Si tenés facturación activa (plan Estándar o superior), podés tildar "Emitir factura" en este paso.</p>
 <div class="callout">
-<p><strong>Tip:</strong> el precio de cada línea se resuelve automáticamente según la lista de precio configurada — ver <a href="/docs/listas-de-precio.html">Listas de precio</a>.</p>
+<p><strong>La sucursal queda fija mientras el turno esté abierto.</strong> Las ventas descuentan stock del depósito de venta de la sucursal de la caja, y dejar elegir otra desalinearía el stock sin que nadie lo note. Para trabajar en otra sucursal, cerrá el turno y abrí uno nuevo.</p>
 </div>
-<h2>Qué pasa al confirmar</h2>
-<p>Al confirmar, el stock del producto (o de la variante puntual) se descuenta automáticamente y queda un movimiento de caja registrado.</p>
+<h2>La pantalla</h2>
+<ul>
+<li><strong>Encabezado:</strong> el turno (<kbd>Turno #N · desde hh:mm · inicial $…</kbd>), la sucursal y la caja, y el botón <strong>Cerrar turno</strong>.</li>
+<li><strong>Campo de escaneo:</strong> el foco vive siempre acá; después de cada acción vuelve solo, así el lector siempre tiene dónde escribir.</li>
+<li><strong>Ticket</strong> (a la izquierda): las líneas de la venta con producto, cantidad, precio unitario e importe. La última línea agregada queda resaltada un segundo.</li>
+<li><strong>Total</strong> (a la derecha): el importe a cobrar y la cantidad de productos. Con promociones aplicadas se ve el subtotal, cada promoción y el total con el ahorro.</li>
+</ul>
+<h2>Agregar productos</h2>
+<ol class="step-list">
+<li><strong>Escaneá</strong> el código de barras. Escanear <strong>agrega</strong>: no hay paso de confirmación.</li>
+<li>O <strong>escribí</strong> parte del código o del nombre: a partir de dos caracteres, y tras una pausa corta, aparece una lista de sugerencias con el precio. Tocá una, o seguí escribiendo y apretá <kbd>Enter</kbd>.</li>
+<li>Si el producto tiene <strong>variantes</strong> (talle, color), el sistema pregunta <strong>Elegí la variante</strong>. Si lo que escaneaste fue el SKU de una variante, entra directo sin preguntar.</li>
+<li>Si el nombre coincide con varios productos, aparece <strong>¿Cuál de estos?</strong>. Con uno solo, entra directo.</li>
+</ol>
+<p>Si nada coincide, el sistema avisa <kbd>Sin resultados para "…"</kbd>. La búsqueda por nombre sólo trae productos activos: si un producto no aparece, revisá que no esté desactivado.</p>
+<h3>Varias unidades del mismo producto</h3>
+<p>Escribí la cantidad, un <kbd>*</kbd> (o una <kbd>x</kbd>) y el producto: <kbd>3 * 7790000000001</kbd> agrega tres unidades. Sirve también con el nombre (<kbd>3 * alfajor</kbd>) y con cantidades decimales (<kbd>0,5 * queso</kbd>). La cantidad tiene que ser mayor que cero.</p>
+<h3>Servicios</h3>
+<p>Un servicio del catálogo (por ejemplo, un flete o una instalación) se vende igual que un producto, pero no descuenta stock porque no tiene inventario.</p>
+<h2>Corregir una venta</h2>
+<ul>
+<li><strong>Marcar una línea:</strong> tocala, o usá <kbd>↑</kbd> y <kbd>↓</kbd>. Las acciones de abajo actúan sobre la línea marcada.</li>
+<li><strong>Quitar línea</strong> (<kbd>F4</kbd>): saca la línea marcada. También está el ícono de papelera en cada línea.</li>
+<li><strong>Cantidad</strong> (<kbd>F6</kbd>): cambia la cantidad de la línea marcada. Acepta decimales (<kbd>1,250</kbd>). Para sacar el producto usá <strong>Quitar línea</strong>, no cantidad cero.</li>
+<li><strong>Cancelar venta</strong> (<kbd>Esc</kbd>): descarta todo el carrito, previa confirmación (<strong>¿Cancelar la venta?</strong>), para que un <kbd>Esc</kbd> sin querer no tire una venta cargada.</li>
+</ul>
+<div class="callout warn">
+<p><strong>La cantidad de una línea de balanza no se cambia.</strong> La fija su etiqueta. Si te equivocaste, quitá la línea y escaneá otra etiqueta. Ver <a href="/docs/balanza.html">Balanza</a>.</p>
+</div>
+<h2>De dónde sale el precio</h2>
+<p>El POS no permite tipear precios ni descuentos a mano: el precio de cada línea sale del sistema.</p>
+<ol class="step-list">
+<li>Si hay una <strong>lista de precios predeterminada</strong> y tiene precio para el producto, se cobra ése, con el <strong>quiebre por cantidad</strong> que corresponda (la cantidad cuenta por producto: dos talles de la misma remera suman) y el precio de la <strong>sucursal</strong> si la lista lo tiene.</li>
+<li>Si no, se cobra el <strong>Precio de venta</strong> del producto.</li>
+<li>Después se aplican las <a href="/docs/promociones.html">promociones</a> («llevá N pagá M» y combos), que se ven como ahorro en el total.</li>
+</ol>
+<p>Un producto de balanza por importe se cobra al importe que dice la etiqueta. Ver <a href="/docs/listas-de-precio.html">Listas de precio</a>.</p>
+<h2>Elegir el cliente</h2>
+<p>La mayoría de las ventas son a <strong>Consumidor final</strong> y no necesitan cliente. Para elegir uno tocá <strong>Cliente</strong> (<kbd>F7</kbd>), buscalo por nombre y tocalo; <strong>Quitar cliente</strong> lo saca. El cliente se necesita para <strong>fiar</strong> (cuenta corriente) y para emitir una factura A.</p>
+<h2>Cobrar</h2>
+<p>Tocá <strong>Cobrar</strong> (<kbd>F2</kbd>). Se abre el cobro con el total a cobrar:</p>
+<ol class="step-list">
+<li>Elegí el <strong>Medio de pago</strong>: Efectivo, Transferencia, Tarjeta de débito, Tarjeta de crédito, Mercado Pago, Cuenta DNI, Otras billeteras, Cheque o <strong>Cuenta corriente (fiado)</strong>.</li>
+<li>El <strong>Monto</strong> viene completo. En efectivo podés escribir en <strong>Recibe</strong> lo que te dio el cliente: el sistema calcula el <strong>Vuelto</strong>.</li>
+<li>Si el cliente paga con más de un medio, tocá <strong>Dividir en otro medio</strong> (o <kbd>F3</kbd> desde la venta) y repartí los montos. Hasta que la suma cubra el total aparece <kbd>Falta cubrir $…</kbd> y <strong>Cobrar</strong> queda deshabilitado.</li>
+<li>Si querés factura, tildá <strong>Emitir factura</strong>.</li>
+<li>Tocá <strong>Cobrar</strong>.</li>
+</ol>
+<h3>Cobro por QR de Mercado Pago</h3>
+<p>Con un solo medio, Mercado Pago, por el total, y la instancia con el QR configurado, aparece <strong>Cobrar con QR</strong>: registra la venta, pone el monto en el QR impreso de la caja y espera a que el pago se acredite. Ver <a href="/docs/mercadopago.html">Cobro con QR de MercadoPago</a>.</p>
+<h3>Fiar</h3>
+<p>Con <strong>Cuenta corriente (fiado)</strong> hace falta saber a quién: si no hay cliente elegido, el cobro ofrece <strong>Elegir cliente (F7)</strong>. La venta queda como deuda del cliente y <strong>no entra a la caja</strong>: el movimiento aparece cuando venga a pagar. Ver <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>.</p>
+<h2>Si el precio cambió mientras cobrabas</h2>
+<p>Antes de registrar la venta, el servidor vuelve a calcular el precio de cada línea. Si alguno ya no es el vigente (alguien cambió la lista, una promoción empezó o terminó, o cambió el precio de la sucursal con la pantalla abierta), <strong>no se cobra nada</strong> y el POS muestra un aviso ámbar:</p>
+<div class="callout warn">
+<p><strong>Cambió el precio de 1 producto; revisá el total y volvé a cobrar.</strong> (o <em>Cambiaron los precios de N productos…</em>)</p>
+</div>
+<ol class="step-list">
+<li>El carrito ya quedó con los precios vigentes y el cobro se cerró. Mirá el <strong>nuevo total</strong>: no se cobra solo, porque el importe cambió.</li>
+<li>Avisale al cliente si hace falta y tocá <strong>Cobrar</strong> de nuevo.</li>
+<li>Si el aviso se repite en cada intento, recargá la pantalla (<kbd>F5</kbd>) y avisale al encargado: puede haber una lista o una promoción mal cargada.</li>
+</ol>
+<p>El aviso desaparece al abrir el cobro de nuevo, al cancelar la venta o al registrarla.</p>
+<h2>Aviso de vencimientos</h2>
+<p>Si en la venta hay mercadería de un producto que vence y el lote de donde saldría está <strong>vencido</strong> o <strong>vence en los próximos 15 días</strong>, antes de cobrar aparece un aviso con una línea por lote (producto, lote, fecha y cuántos días faltan):</p>
+<div class="callout warn">
+<p><strong>Hay 1 producto con lote por vencer</strong> — <em>Yerba 500 g, lote L12, vence 20-10-2026 (vence en 7 días)</em>. ¿Vender igual?</p>
+</div>
+<ul>
+<li><strong>Vender igual</strong> sigue con la venta. El sistema descuenta del lote que vence primero (FEFO).</li>
+<li><strong>Volver</strong> vuelve al cobro sin registrar nada, por ejemplo para cambiar el producto por otro lote o consultarlo con el encargado.</li>
+</ul>
+<p>El aviso informa, no bloquea: un producto vencido se puede vender. Si la consulta tarda más de un segundo y medio o falla, el sistema cobra igual sin aviso. Ver <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>.</p>
+<h2>Venta cobrada</h2>
+<p>Al registrarse aparece <strong>Venta POS-000123 cobrada</strong> con el total, el vuelto, las promociones aplicadas y, si corresponde, la factura emitida.</p>
+<ul>
+<li><strong>Nueva venta</strong> (o <kbd>Enter</kbd>, <kbd>F2</kbd> o <kbd>Esc</kbd>) vuelve al campo de escaneo.</li>
+<li><strong>Imprimir ticket</strong> (<kbd>F8</kbd>) abre el ticket de la venta para imprimir.</li>
+<li>Si la venta incluía mercadería con vencimiento a tener en cuenta, o salió stock sin lote que lo respaldara, se lista en un recuadro de avisos. No modifica el ticket.</li>
+<li>Si falló la factura aparece <kbd>No se pudo emitir la factura: …</kbd>. <strong>La venta quedó cobrada igual</strong>: reintentá desde el detalle de la venta.</li>
+</ul>
+<h2>Teclas</h2>
+<table class="docs-table">
+<thead><tr><th>Tecla</th><th>Acción</th></tr></thead>
+<tbody>
+<tr><td><kbd>F2</kbd></td><td>Cobrar</td></tr>
+<tr><td><kbd>F3</kbd></td><td>Cobrar dividiendo el pago en dos medios</td></tr>
+<tr><td><kbd>F4</kbd></td><td>Quitar la línea marcada</td></tr>
+<tr><td><kbd>F6</kbd></td><td>Cambiar la cantidad de la línea marcada</td></tr>
+<tr><td><kbd>F7</kbd></td><td>Elegir o quitar el cliente</td></tr>
+<tr><td><kbd>F8</kbd></td><td>Imprimir el ticket de la última venta</td></tr>
+<tr><td><kbd>F9</kbd></td><td>Abrir el detalle de la última venta (para facturarla), con el carrito vacío</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>Cancelar la venta (con confirmación)</td></tr>
+<tr><td><kbd>↑</kbd> <kbd>↓</kbd></td><td>Marcar la línea anterior o siguiente</td></tr>
+</tbody>
+</table>
+<p>Cada tecla también tiene su botón en pantalla.</p>
+<h2>Cerrar el turno</h2>
+<ol class="step-list">
+<li>Tocá <strong>Cerrar turno</strong> en el encabezado.</li>
+<li>El sistema muestra el <strong>Efectivo inicial</strong>, lo cobrado por cada medio y el <strong>Efectivo esperado en caja</strong>.</li>
+<li>Contá el cajón y escribí el <strong>Efectivo contado</strong>. Se muestra la <strong>Diferencia</strong>: en verde si cierra justo, en rojo si sobra o falta.</li>
+<li>Agregá <strong>Notas</strong> si hace falta y tocá <strong>Cerrar turno</strong>.</li>
+<li>Tocá <strong>Imprimir ticket</strong> para el comprobante del arqueo, o <strong>Listo</strong>.</li>
+</ol>
+<p>Ver <a href="/docs/caja.html">Caja y turnos</a>.</p>
+<h2>Mensajes frecuentes</h2>
+<table class="docs-table">
+<thead><tr><th>Mensaje</th><th>Qué significa y qué hacer</th></tr></thead>
+<tbody>
+<tr><td><kbd>No hay ningún turno de caja abierto</kbd></td><td>Abrí un turno: sin turno no se cobra.</td></tr>
+<tr><td><kbd>Todas las cajas de esta sucursal tienen un turno abierto</kbd></td><td>Cerrá el turno de otra persona (lo puede hacer un encargado) o pedí que se agregue una caja.</td></tr>
+<tr><td><kbd>No hay sucursales creadas todavía: sin una, no se puede cobrar</kbd></td><td>Falta crear la sucursal. Ver <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>.</td></tr>
+<tr><td><kbd>Turno sin caja asignada: convendría cerrarlo y abrir uno nuevo en una caja</kbd></td><td>Es un turno viejo, de antes de que los turnos se abrieran sobre una caja. Cerralo y abrí uno nuevo.</td></tr>
+<tr><td><kbd>Monto inválido (ej. 1.500 o 1.500,50)</kbd></td><td>El monto sólo lleva números, con coma o punto decimal. <kbd>1.500</kbd> es mil quinientos.</td></tr>
+<tr><td><kbd>Lo recibido es menor que el monto de ese pago</kbd></td><td>En <strong>Recibe</strong> pusiste menos que el monto en efectivo.</td></tr>
+<tr><td><kbd>La etiqueta es del producto N de la balanza, que no está cargado en el catálogo</kbd></td><td>Falta cargarle al producto el código de tipo <strong>Balanza</strong>. Ver <a href="/docs/balanza.html">Balanza</a>.</td></tr>
+</tbody>
+</table>
 <div class="docs-nav-footer">
-<a href="/docs/listas-de-precio.html">← Listas de precio</a>
-<a href="/docs/stock-inventario.html">Stock e inventario →</a>
+<a href="/docs/primeros-pasos.html">← Primeros pasos</a>
+<a href="/docs/balanza.html">Balanza →</a>
 </div>
   </main>
 </div>

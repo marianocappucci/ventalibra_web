@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reposición sugerida — Documentación VentaLibra</title>
+  <meta name="description" content="Qué pedir y cuánto, y órdenes de compra en borrador por proveedor.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand" style="text-decoration:none"><img src="/img/marca.svg" alt="" class="logo-icon" width="32" height="32">VentaLibra</a>
+  <div class="navbar-links">
+    <a href="/#funciones">Funciones</a>
+    <a href="/#planes">Planes</a>
+    <a href="/docs/" style="color:var(--brand)">Documentación</a>
+    <a href="/legal/terminos">Términos</a>
+  </div>
+</nav>
+
+<div class="docs-wrapper">
+  <nav class="docs-sidebar">
+    <div class="docs-sidebar-section">Inicio</div>
+    <a href="/docs/">Introducción</a>
+    <a href="/docs/primeros-pasos.html">Primeros pasos</a>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
+    <a href="/docs/catalogo.html">Catálogo</a>
+    <a href="/docs/listas-de-precio.html">Listas de precio</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
+    <a href="/docs/stock-inventario.html">Stock e inventario</a>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html" class="active">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
+    <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
+    <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
+    <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
+    <a href="/docs/facturacion.html">Facturación electrónica</a>
+    <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
+    <div class="docs-sidebar-section">Cuenta</div>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
+    <a href="/docs/logs.html">Logs del sistema</a>
+    <a href="/docs/configuracion.html">Configuración</a>
+  </nav>
+
+  <main class="docs-content">
+    <h1>Reposición sugerida</h1>
+<p class="docs-lead">Qué pedir, cuánto y a quién, a partir de lo que se vende, lo que hay y lo que ya viene en camino. Sugiere y, si querés, deja las órdenes de compra armadas en borrador.</p>
+<h2>Cómo calcula</h2>
+<ol class="step-list">
+<li><strong>Mira lo que se vendió</strong> en los últimos <em>días de rotación</em> (por defecto 30) y saca la rotación diaria.</li>
+<li><strong>La proyecta</strong> al horizonte: <em>días de cobertura</em> (15) más el <em>plazo de entrega</em> (3). Es lo que se vendería hasta que llegue lo que pidas y te dure el período que querés cubrir.</li>
+<li><strong>Resta lo que hay</strong> y <strong>lo que ya viene en camino</strong>. Lo que falta, redondeado hacia arriba a la unidad, es lo <strong>sugerido</strong>.</li>
+<li>Si con eso no se llega al <strong>stock mínimo</strong>, se pide al menos lo que falta para llegar. Si el producto tiene <strong>stock máximo</strong>, la suma de lo que hay, lo que viene y lo sugerido no lo pasa; el máximo manda sobre el mínimo.</li>
+</ol>
+<div class="callout">
+<p><strong>Un ejemplo:</strong> en 30 días vendiste 60 unidades (2 por día). El horizonte es 15 + 3 = 18 días, así que necesitás 36. Tenés 10 en stock y 8 en camino: el sistema sugiere pedir <strong>18</strong>.</p>
+</div>
+<h3>Qué cuenta y qué no</h3>
+<ul>
+<li><strong>Lo que está en un lote vencido no cuenta como stock.</strong> Un producto con la góndola llena de mercadería vencida figura sin cobertura. La fila lo aclara: <kbd>incluye N vencido, que no se cuenta para pedir</kbd>.</li>
+<li><strong>Un producto sin stock no vende</strong>, así que dividir por todos los días lo subestimaría: los días en que el producto estuvo sin stock y sin ventas no cuentan, con una muestra de al menos 7 días. La fila avisa <kbd>Posible quiebre: la rotación puede estar subestimada</kbd>.</li>
+<li><strong>Una venta anulada o pendiente de cobro no cuenta</strong>, y las devoluciones se restan.</li>
+<li>Un stock negativo cuenta como cero: pedir para «tapar» un inventario que nunca se cargó es peor que pedir de menos.</li>
+<li>Sólo entran productos activos, que no sean servicios.</li>
+</ul>
+<h2>La pantalla</h2>
+<p>En <strong>Inventario → Reposición sugerida</strong>. La ven el administrador, el encargado y el depósito. En el celular, los filtros se agrupan en un bloque plegable: <strong>Filtros y parámetros</strong>, que resume lo elegido.</p>
+<h3>Filtros y parámetros</h3>
+<table class="docs-table">
+<thead><tr><th>Campo</th><th>Para qué</th></tr></thead>
+<tbody>
+<tr><td><strong>Sucursal</strong></td><td>Calcula para una sucursal o para <strong>Toda la instancia</strong>. Con una sucursal usa el stock de sus depósitos y su mínimo propio (si el producto lo tiene).</td></tr>
+<tr><td><strong>Categoría</strong>, <strong>Proveedor</strong></td><td>Acotan la lista. El proveedor es el habitual de cada producto.</td></tr>
+<tr><td><strong>Días de rotación</strong></td><td>La ventana de ventas que se mira. Por defecto 30, hasta 365.</td></tr>
+<tr><td><strong>Días de cobertura</strong></td><td>Cuántos días querés que te dure lo que pidas. Por defecto 15, hasta 365.</td></tr>
+<tr><td><strong>Plazo de entrega (días)</strong></td><td>El plazo general. Por defecto 3, hasta 180. Un producto con plazo propio usa el suyo.</td></tr>
+</tbody>
+</table>
+<h3>Interruptores</h3>
+<ul>
+<li><strong>Sólo lo que hay que pedir</strong> (prendido por defecto): esconde los productos sin nada que pedir.</li>
+<li><strong>Ajustar por estacionalidad</strong>: proyecta con lo que pasó hace un año, para productos con temporada. Aparece una columna <strong>Estacional</strong> con el factor (<kbd>×3</kbd>) o un guion si no hay historia de hace un año. Confía en un solo año y necesita ventas de esa época; en una instancia con menos de un año de historia no tiene con qué ajustar.</li>
+<li><strong>Descontar lo que vence en el horizonte</strong>: además de lo ya vencido, descuenta del stock lo que, siguiendo el orden de vencimiento y a la rotación proyectada, no se alcanza a vender antes de vencer. Suma la columna <strong>Por vencer</strong>.</li>
+<li><strong>Contar borradores como pedidos</strong> (prendido por defecto): una orden de compra en borrador todavía no se mandó al proveedor. Con el interruptor prendido, resta de lo sugerido igual que una enviada. Apagado, no resta, y lo que tiene en borrador se ve aparte, en la columna <strong>En borrador</strong>.</li>
+</ul>
+<h3>La tabla</h3>
+<table class="docs-table">
+<thead><tr><th>Columna</th><th>Qué dice</th></tr></thead>
+<tbody>
+<tr><td><strong>Stock</strong></td><td>Lo que hay en la sucursal o en la instancia, real, con lo vencido incluido</td></tr>
+<tr><td><strong>En camino</strong></td><td>Lo pendiente de las órdenes de compra enviadas o con recepción parcial (y de los borradores, según el interruptor)</td></tr>
+<tr><td><strong>En borrador</strong></td><td>Lo pendiente de las órdenes en borrador</td></tr>
+<tr><td><strong>Mínimo</strong></td><td>El mínimo que usa el cálculo, marcado como propio si es de la sucursal</td></tr>
+<tr><td><strong>Vendido en la ventana</strong>, <strong>Rotación diaria</strong>, <strong>Cobertura (días)</strong></td><td>Cuánto se vende y cuántos días alcanza lo que hay</td></tr>
+<tr><td><strong>Sugerido</strong></td><td>Cuánto pedir</td></tr>
+<tr><td><strong>Motivo</strong></td><td><kbd>Bajo el mínimo</kbd>, <kbd>Por rotación</kbd> o <kbd>Bajo el mínimo y por rotación</kbd></td></tr>
+<tr><td><strong>Proveedor</strong></td><td>El habitual del producto, si tiene</td></tr>
+</tbody>
+</table>
+<p>Arriba de la tabla, el resumen: <kbd>N productos · X a pedir · Y con posible quiebre · Z sin ventas</kbd>. Los productos <kbd>Sin ventas en la ventana</kbd> se avisan en su fila. La tabla sale ordenada por urgencia (menor cobertura primero); tocá el título de una columna para ordenar por ella y <strong>Orden por urgencia</strong> para volver. <strong>CSV</strong> baja el listado en el orden en que lo ves.</p>
+<h2>Generar las órdenes en borrador</h2>
+<p>Con <strong>Generar órdenes en borrador</strong> el sistema arma <strong>una orden de compra por proveedor habitual</strong>, con una línea por producto y la cantidad sugerida. La ve y la ejecuta quien puede escribir compras: encargado y administrador.</p>
+<ol class="step-list">
+<li>Ajustá los filtros y parámetros hasta ver la sugerencia que querés.</li>
+<li>Tocá <strong>Generar órdenes en borrador</strong>. El diálogo muestra qué órdenes se van a crear.</li>
+<li>Confirmá. Cada orden creada aparece con su número, que lleva a su detalle en <strong>Compras</strong>.</li>
+<li>Revisá cada orden, completá lo que falte y envíala desde <a href="/docs/compras-proveedores.html">Compras</a>.</li>
+</ol>
+<ul>
+<li><strong>Nunca se envía ni se confirma sola:</strong> son borradores.</li>
+<li>El costo de cada línea es el costo vigente del producto, sin IVA. Una línea de un producto sin costo cargado queda marcada para completarla antes de enviar.</li>
+<li>Los productos <strong>sin proveedor habitual</strong> no entran en ninguna orden y el sistema los informa.</li>
+<li>Se puede reintentar sin duplicar: si se cortó la conexión, ofrece <strong>Reintentar el pedido anterior</strong>.</li>
+<li>Como los borradores cuentan como «en camino», generar dos veces seguidas no pide dos veces lo mismo.</li>
+</ul>
+<h2>Qué conviene cargar para que sirva</h2>
+<ol class="step-list">
+<li><strong>El stock mínimo</strong> de cada producto, global y, si hace falta, por sucursal.</li>
+<li><strong>El plazo de entrega</strong> propio de los productos que tardan distinto.</li>
+<li><strong>El proveedor habitual</strong>, para poder armar las órdenes.</li>
+<li><strong>El costo</strong> de cada producto, para que las órdenes salgan con importe.</li>
+</ol>
+<p>Todo eso se carga en el formulario del producto. Ver <a href="/docs/catalogo.html">Catálogo</a>. El depósito puede cargar plazo, stock máximo, proveedor y mínimos sin ver el costo.</p>
+<div class="docs-nav-footer">
+<a href="/docs/vencimientos-y-lotes.html">← Vencimientos y lotes</a>
+<a href="/docs/compras-proveedores.html">Compras a proveedores →</a>
+</div>
+  </main>
+</div>
+
+<footer style="background:var(--dark);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem;">
+  © 2026 VentaLibra · <a href="/" style="color:#94a3b8">Inicio</a>
+</footer>
+</body>
+</html>
