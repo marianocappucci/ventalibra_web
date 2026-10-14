@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clientes y proveedores — Documentación VentaLibra</title>
+  <meta name="description" content="Fichas de clientes y proveedores.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,40 +29,72 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html" class="active">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Clientes y proveedores</h1>
-<p class="docs-lead">Fichas separadas — un mismo contacto nunca aparece mezclado entre ambas listas.</p>
+<p class="docs-lead">Fichas separadas: un mismo contacto nunca aparece mezclado entre ambas listas.</p>
 <h2>Clientes</h2>
-<p>La mayoría de las ventas de un comercio de retail son a <strong>Consumidor Final</strong>, sin cliente registrado. Cargar un cliente es opcional y sirve para llevar datos de contacto o fiscales (CUIT/condición de IVA) cuando corresponde facturar tipo A.</p>
-<h2>Proveedores</h2>
-<p>Se cargan igual que los clientes, pero aparecen solo en la lista de <strong>Proveedores</strong> — se usan al armar <a href="/docs/compras-proveedores.html">órdenes de compra y recepciones</a>.</p>
-<div class="callout">
-<p><strong>Tip:</strong> hoy el alta y la edición se hacen desde cada sección (Clientes o Proveedores) — no hay borrado, si un contacto queda obsoleto simplemente dejá de usarlo.</p>
+<p>La mayoría de las ventas de un comercio son a <strong>Consumidor final</strong>, sin cliente registrado. Cargar un cliente es opcional y sirve para tres cosas: fiarle (<a href="/docs/cuenta-corriente.html">cuenta corriente</a>), llevar sus datos de contacto y emitirle una factura A con sus datos fiscales.</p>
+<h3>Cargar un cliente</h3>
+<ol class="step-list">
+<li>Andá a <strong>Mostrador → Clientes</strong> y tocá <strong>Nuevo cliente</strong>.</li>
+<li>Completá <strong>Nombre</strong> (obligatorio), <strong>CUIT/DNI</strong>, <strong>Teléfono</strong>, <strong>Email</strong>, <strong>Dirección</strong> y <strong>Condición de IVA</strong>.</li>
+<li>Para traer los datos de ARCA, escribí el CUIT de 11 dígitos y tocá <strong>Consultar datos en ARCA</strong>: completa nombre, domicilio y condición.</li>
+<li>Tocá <strong>Crear cliente</strong>.</li>
+</ol>
+<p>La lista se busca por nombre, CUIT/DNI, email o teléfono. En cada fila: <strong>Ver ficha</strong>, <strong>Editar cliente</strong> y desactivar o <strong>Reactivar cliente</strong>.</p>
+<h3>La ficha</h3>
+<p>Muestra los datos del cliente y la <strong>Lista de precios</strong> asignada, y desde ahí se edita. Su deuda se ve en <strong>Cuentas corrientes</strong>.</p>
+<div class="callout warn">
+<p><strong>La lista de precios de un cliente no cambia el precio del POS.</strong> El mostrador cobra con la lista predeterminada de la instancia. Ver <a href="/docs/listas-de-precio.html">Listas de precio</a>.</p>
 </div>
+<h3>Qué cliente sirve para facturar</h3>
+<p>El tipo de factura depende de la <strong>Condición de IVA</strong> y del <strong>CUIT</strong> del cliente. Para una factura A hace falta un CUIT válido y condición de Responsable Inscripto o Monotributista. Ver <a href="/docs/facturacion.html">Facturación electrónica</a>.</p>
+<h2>Proveedores</h2>
+<p>Se cargan igual que los clientes, en <strong>Compras → Proveedores</strong>, con <strong>Nuevo proveedor</strong>. Aparecen sólo en la lista de proveedores y se usan al armar <a href="/docs/compras-proveedores.html">órdenes de compra</a> y como <strong>Proveedor habitual</strong> de un producto.</p>
+<ul>
+<li>Un proveedor con compras registradas no se puede dar de baja.</li>
+<li>Un cliente que ya no usás conviene desactivarlo (y reactivarlo si vuelve) en lugar de eliminarlo: conserva su historial.</li>
+</ul>
+<h2>Quién puede qué</h2>
+<ul>
+<li><strong>Administrador y encargado:</strong> clientes y proveedores completos.</li>
+<li><strong>Vendedor:</strong> ve y edita clientes, y su cuenta corriente.</li>
+<li><strong>Cajero:</strong> elige un cliente en el POS, pero no tiene la pantalla de Clientes ni abre su ficha.</li>
+<li><strong>Depósito:</strong> no ve clientes.</li>
+</ul>
+<p>Cada alta, edición, baja o fiado de un cliente queda en el <a href="/docs/logs.html">registro de actividad</a>.</p>
 <div class="docs-nav-footer">
 <a href="/docs/compras-proveedores.html">← Compras a proveedores</a>
-<a href="/docs/caja.html">Caja →</a>
+<a href="/docs/cuenta-corriente.html">Cuentas corrientes →</a>
 </div>
   </main>
 </div>

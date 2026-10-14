@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caja — Documentación VentaLibra</title>
+  <title>Caja y turnos — Documentación VentaLibra</title>
+  <meta name="description" content="Turnos por caja con arqueo, cierre diario por sucursal y alta de cajas.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,40 +29,101 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html" class="active">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html" class="active">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
-    <h1>Caja</h1>
-<p class="docs-lead">Todo movimiento de venta queda registrado en caja, factures o no — el control de caja es independiente del tema fiscal.</p>
-<h2>Por qué caja no depende de facturar</h2>
-<p>A diferencia de Gestiolibra/MedLibra (donde la caja solo se toca si hay una factura de por medio), en VentaLibra <strong>toda venta cobrada</strong> genera su movimiento de caja con el medio de pago elegido, factures o no. Es una decisión de producto: en retail, controlar el efectivo/medios de cobro es una necesidad del día a día, separada de si el cliente pidió factura.</p>
+    <h1>Caja y turnos</h1>
+<p class="docs-lead">Cada cajero abre su turno sobre una caja, cobra y lo cierra contando el cajón. Al final del día, el encargado hace el cierre diario de la sucursal.</p>
+<h2>Cómo se organiza</h2>
+<table class="docs-table">
+<thead><tr><th>Concepto</th><th>Qué es</th></tr></thead>
+<tbody>
+<tr><td><strong>Caja</strong></td><td>Un mostrador físico de una sucursal. Una sucursal puede tener varias, y cada una lleva su propio arqueo.</td></tr>
+<tr><td><strong>Turno</strong></td><td>El período en que una persona cobra en una caja: de la apertura, con su efectivo inicial, hasta el cierre con el conteo del cajón.</td></tr>
+<tr><td><strong>Cierre diario</strong></td><td>El cierre del día de una sucursal, numerado, con el ticket de 80 mm. Reúne los turnos del día.</td></tr>
+</tbody>
+</table>
 <div class="callout">
-<p><strong>Un solo medio de pago por venta</strong> por ahora — cobros divididos (parte efectivo, parte tarjeta) quedan para una fase posterior.</p>
+<p><strong>Toda venta cobrada deja su movimiento de caja</strong> con el medio de pago, se facture o no: controlar el efectivo y los medios de cobro es una necesidad del día a día, separada de lo fiscal. La excepción es lo que se <strong>fía</strong>: es deuda del cliente y recién entra a la caja cuando paga.</p>
 </div>
-<h2>Consultar caja</h2>
-<p>El <a href="/docs/reportes.html">reporte de caja</a> resume los ingresos por período — mismo motor que usan Contalibra y Restolibra.</p>
+<h2>Abrir un turno</h2>
+<ol class="step-list">
+<li>Desde el <a href="/docs/punto-de-venta.html">POS</a> (aparece solo si no tenés turno) o desde <strong>Caja y tesorería → Turnos → Abrir turno</strong>.</li>
+<li>Elegí la <strong>Caja</strong>. Las que ya tienen un turno abierto no se ofrecen. Si no hay una libre, avisa <kbd>No hay una caja libre</kbd>.</li>
+<li>Escribí el <strong>Fondo inicial</strong>: el efectivo que hay en el cajón al empezar.</li>
+<li>Agregá <strong>Notas</strong> si querés (por ejemplo, «Turno mañana») y tocá <strong>Abrir turno ahora</strong>.</li>
+</ol>
+<p>Cada persona tiene <strong>su</strong> turno: la plata de dos cajeros que venden a la vez no se mezcla en el mismo arqueo.</p>
+<h2>Cerrar el turno</h2>
+<ol class="step-list">
+<li>Desde el POS tocá <strong>Cerrar turno</strong>, o en <strong>Caja y tesorería → Turnos</strong> usá <strong>Cerrar turno</strong> en la fila del turno abierto.</li>
+<li>Revisá el <strong>Resumen del turno</strong>: cajero, caja, apertura, fondo inicial, ventas realizadas y la <strong>Recaudación por medio</strong>.</li>
+<li>Contá el cajón y escribí el <strong>Efectivo contado en caja</strong>. El sistema calcula la <strong>Diferencia</strong> con el <strong>Efectivo esperado en caja</strong>.</li>
+<li>Escribí las <strong>Notas de cierre</strong> (por ejemplo, «Faltante por error de vuelto») y tocá <strong>Confirmar cierre de turno</strong>.</li>
+<li>Imprimí el ticket del cierre si lo necesitás.</li>
+</ol>
+<div class="callout">
+<p><strong>Cómo se calcula el efectivo esperado:</strong> fondo inicial más los cobros en <strong>efectivo</strong> del turno. Las ventas con tarjeta, transferencia o billeteras figuran en la recaudación por medio pero no se cuentan en el cajón. Lo fiado no entra. Una cobranza de cuenta corriente en efectivo sí.</p>
+</div>
+<h3>Consultar turnos</h3>
+<p>La pantalla <strong>Turnos</strong> muestra, por turno, apertura, cierre, fondo inicial, esperado, declarado, diferencia y estado. Cada cajero ve los suyos; <strong>el encargado y el administrador ven los de todos</strong> y pueden cerrar el de otra persona (por ejemplo, si quedó abierto). El botón <strong>Ver detalle</strong> abre las ventas del turno y el resultado del cierre.</p>
+<h2>Cierre diario</h2>
+<p>Lo hace el encargado o el administrador, en <strong>Caja y tesorería → Turnos → Cierre diario</strong>.</p>
+<ol class="step-list">
+<li>Elegí la <strong>Sucursal</strong>. Si tenés un turno abierto, ya viene la suya.</li>
+<li>Mirá la <strong>vista previa del día</strong>: los turnos de ese día con su <strong>Esperado</strong>, <strong>Declarado</strong> y <strong>Diferencia</strong>.</li>
+<li>Si hay turnos abiertos, el sistema avisa y los lista: <strong>hay que cerrarlos antes</strong>.</li>
+<li>Escribí <strong>Notas</strong> (opcional) y tocá <strong>Confirmar cierre del día</strong>.</li>
+<li>Tocá <strong>Imprimir ticket</strong>.</li>
+</ol>
+<p>Cada cierre queda numerado en <strong>Cierres anteriores</strong>. Si ya cerraste el día aparece <kbd>Ya cerrado</kbd>. Una sucursal sin turnos ese día avisa <kbd>No hubo turnos hoy en esta sucursal</kbd>.</p>
+<h3>Reabrir un día</h3>
+<p>Si se cerró por error o falta cargar algo, <strong>sólo un administrador</strong> puede reabrirlo: <strong>Reabrir día</strong> en la fila del cierre, con el <strong>Motivo (obligatorio)</strong>. Reabrir es más delicado que cerrar, por eso no lo tiene el encargado. Un cierre reabierto figura como <kbd>Anulado</kbd> en el historial.</p>
+<h2>Cajas</h2>
+<p>Las crea y edita el administrador, en <strong>Caja y tesorería → Cajas</strong>. Toda sucursal nueva recibe su primera caja sola; sumá una por cada mostrador adicional.</p>
+<table class="docs-table">
+<thead><tr><th>Campo</th><th>Para qué</th></tr></thead>
+<tbody>
+<tr><td><strong>Sucursal</strong></td><td>A qué sucursal pertenece. Una venta descuenta stock del depósito de venta de la sucursal de su caja.</td></tr>
+<tr><td><strong>Nombre</strong>, <strong>Descripción</strong></td><td>Cómo la ve el cajero al abrir el turno (por ejemplo, «Caja mostrador»).</td></tr>
+<tr><td><strong>Punto de venta de ARCA</strong></td><td>Si la caja factura con otro punto de venta. Vacío: usa el de la empresa.</td></tr>
+<tr><td><strong>POS ID de MercadoPago (QR)</strong></td><td>El identificador del QR de esa caja. Vacío desactiva el QR en la caja. Ver <a href="/docs/mercadopago.html">Cobro con QR</a>.</td></tr>
+<tr><td><strong>Medios de pago habilitados</strong></td><td>Con cuáles se puede cobrar en esa caja.</td></tr>
+</tbody>
+</table>
+<p>Una caja se puede <strong>Predeterminar</strong>, <strong>Desactivar</strong> y <strong>Editar</strong>. Una caja con movimientos no se elimina: se desactiva. Una caja con un turno abierto figura con la marca <kbd>Turno abierto</kbd>.</p>
+<h2>Dónde ver el dinero por medio</h2>
+<p>El reporte <strong>Reportes → Caja por medio</strong> resume lo que entró y salió por cada caja y cada medio de cobro. Ver <a href="/docs/reportes.html">Reportes</a>.</p>
 <div class="docs-nav-footer">
-<a href="/docs/clientes-proveedores.html">← Clientes y proveedores</a>
-<a href="/docs/facturacion.html">Facturación electrónica →</a>
+<a href="/docs/ventas.html">← Ventas y devoluciones</a>
+<a href="/docs/catalogo.html">Catálogo →</a>
 </div>
   </main>
 </div>

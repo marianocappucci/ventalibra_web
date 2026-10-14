@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logs del sistema — Documentación VentaLibra</title>
+  <meta name="description" content="Registro de actividad y accesos.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,23 +29,31 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html" class="active">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
@@ -53,44 +62,43 @@
     <h1>Logs del sistema</h1>
 <p class="docs-lead">Quién creó, editó o borró qué, y quién entró al sistema. Sólo para administradores.</p>
 <h2>Dónde está</h2>
-<p>En el menú lateral, <strong>Logs</strong>. Sólo la ve un usuario con rol <strong>admin</strong>: es la pantalla que muestra qué hizo cada cajero y desde qué dirección entró.</p>
+<p>En <strong>Administración → Logs</strong>. Sólo la ve un usuario con rol <strong>admin</strong>: es la pantalla que responde «¿quién hizo esto?».</p>
 <h2>Dos listas, dos preguntas distintas</h2>
 <table class="docs-table">
 <thead><tr><th>Lista</th><th>Contesta</th></tr></thead>
 <tbody>
-<tr><td><strong>Actividad del sistema</strong></td><td>«¿Quién cambió este precio?», «¿quién dio de alta este producto?»</td></tr>
+<tr><td><strong>Actividad del sistema</strong></td><td>«¿Quién cambió este precio?», «¿quién dio de alta este producto?», «¿quién modificó este cliente?»</td></tr>
 <tr><td><strong>Accesos de usuarios</strong></td><td>«¿Quién entró ayer?», «¿alguien intentó entrar y falló?»</td></tr>
 </tbody>
 </table>
 <h2>Actividad del sistema</h2>
-<p>Cada fila es un cambio: qué se tocó, quién lo hizo y cuándo. Las acciones son <strong>Creado</strong>, <strong>Editado</strong> y <strong>Borrado</strong>. Al desplegar una edición se ve el antes y el después de cada campo que cambió.</p>
+<p>Cada fila es un cambio: qué se tocó, quién lo hizo y cuándo. Las acciones son <strong>Creado</strong>, <strong>Editado</strong> y <strong>Borrado</strong>. Al desplegar una edición se ve el <strong>antes y el después</strong> de cada campo que cambió.</p>
 <h3>Qué se registra</h3>
 <ul>
 <li><strong>Productos</strong> del catálogo, sus códigos y variantes.</li>
-<li><strong>Precios</strong> y listas de precio.</li>
+<li><strong>Precios</strong>, listas de precio y promociones.</li>
 <li><strong>Ventas</strong>.</li>
-<li><strong>Movimientos de stock</strong> — siempre como alta: un movimiento nunca se edita, se agrega otro que lo compensa.</li>
-<li><strong>Depósitos</strong>, <strong>clientes y proveedores</strong>, <strong>órdenes y recepciones de compra</strong>.</li>
-<li><strong>Configuración</strong> del comercio.</li>
+<li><strong>Movimientos de stock</strong>, siempre como alta: un movimiento nunca se edita, se agrega otro que lo compensa.</li>
+<li><strong>Depósitos</strong> y sucursales.</li>
+<li><strong>Clientes</strong> (alta, edición, baja, alias y fiado), <strong>proveedores</strong>, <strong>órdenes y recepciones de compra</strong>.</li>
+<li>La <strong>configuración</strong> del comercio.</li>
 </ul>
 <h3>Filtros</h3>
 <ul>
-<li><strong>Entidad</strong>, <strong>Acción</strong>, <strong>Usuario</strong> y rango de fechas <strong>Desde / Hasta</strong>.</li>
+<li><strong>Acción</strong> (tocando las etiquetas de colores), <strong>Entidad</strong>, <strong>Usuario</strong> y el rango <strong>Desde / Hasta</strong>. <strong>Limpiar</strong> los saca.</li>
 </ul>
-<p>Se muestran de a 100 registros por página, del más reciente al más viejo.</p>
+<p>La lista está paginada, del más reciente al más viejo, y dice cuántos registros muestra del total.</p>
 <div class="callout">
 <p><strong>El registro es automático.</strong> No hay que activarlo ni acordarse de nada: cualquier cambio que se guarde queda anotado, incluidas las funciones que se agreguen más adelante.</p>
 </div>
 <h2>Accesos de usuarios</h2>
-<p>Los últimos 100 accesos, con fecha, evento, usuario y dirección IP. Los eventos son <strong>login</strong>, <strong>logout</strong> y <strong>login fallido</strong>.</p>
-<p>El intento fallido guarda <strong>el nombre de usuario que se tipeó</strong>, aunque no exista. Es lo que permite distinguir a un cajero que se equivocó de contraseña de alguien probando usuarios al azar.</p>
+<p>Los últimos 100 accesos, con hora, evento, usuario y dirección IP. Los eventos son <strong>Ingreso</strong>, <strong>Salida</strong> e <strong>Intento fallido</strong>.</p>
+<p>El intento fallido guarda <strong>el nombre de usuario que se tipeó</strong>, aunque no exista. Eso permite distinguir a un cajero que se equivocó de contraseña de alguien probando usuarios al azar.</p>
 <div class="callout">
-<p><strong>Sobre la IP:</strong> es la dirección pública desde la que se conectó el navegador. Sirve para leer el log, no como prueba — una IP se puede falsificar.</p>
+<p><strong>Sobre la IP:</strong> es la dirección pública desde la que se conectó el navegador. Sirve para leer el log, no como prueba: una IP se puede falsificar.</p>
 </div>
 <h2>Qué no aparece</h2>
-<p>Las contraseñas y las credenciales de integraciones nunca se guardan en el log. Cuando lo que cambia es justamente una de ellas, la fila dice <strong>que cambió</strong> pero no el valor: un log que descarta la edición entera no está ocultando el secreto, está ocultando el hecho.</p>
-<h2>Desde cuándo</h2>
-<p>El log arranca vacío el día que se instala esta versión y se llena desde ahí. Lo que pasó antes no quedó registrado.</p>
+<p>Las contraseñas y las credenciales de integraciones (certificados de ARCA, tokens de MercadoPago, contraseña del correo) nunca se guardan en el log. Cuando lo que cambia es justamente una de ellas, la fila dice <strong>que cambió</strong> pero no el valor.</p>
 <div class="docs-nav-footer">
 <a href="/docs/usuarios-roles.html">← Usuarios y roles</a>
 <a href="/docs/configuracion.html">Configuración →</a>

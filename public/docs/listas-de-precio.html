@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Listas de precio — Documentación VentaLibra</title>
+  <meta name="description" content="Listas, quiebres por cantidad, promociones con vigencia, precio por sucursal y actualización masiva.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,45 +29,103 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html" class="active">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Listas de precio</h1>
-<p class="docs-lead">Precios especiales por lista, para mayoristas, promociones o cualquier segmentación que necesites.</p>
-<h2>Crear una lista</h2>
-<p>Andá a <strong>Listas de precio → Nueva lista</strong> y ponele un nombre (por ejemplo, "Mayorista"). Después cargá un precio específico por producto dentro de esa lista.</p>
-<h2>Cómo se resuelve el precio de una venta</h2>
-<p>Al vender, el precio se resuelve en este orden:</p>
+<p class="docs-lead">Precios distintos al precio de venta del producto: por cantidad, por fecha y hora, o por sucursal. El POS cobra con la lista que marques como predeterminada.</p>
+<h2>Cómo cobra el POS</h2>
 <ol class="step-list">
-<li>Precio explícito ingresado a mano en la venta (si corresponde).</li>
-<li>Precio de la lista configurada, si existe una para ese producto.</li>
-<li>Precio de venta por defecto del catálogo, como último respaldo.</li>
+<li>Si hay una lista <strong>predeterminada</strong> y activa con precio para el producto, el POS cobra ese precio.</li>
+<li>Si no la hay, o la lista no tiene precio para ese producto, cobra el <strong>Precio de venta</strong> del producto.</li>
 </ol>
+<p>Dentro de la lista, entre los precios vigentes en ese momento rige el <strong>más específico</strong>: el de la <strong>sucursal</strong> de la caja antes que el general, y después el <strong>quiebre por cantidad</strong> más alto que se alcance. Las promociones «llevá N pagá M» y los combos se aplican después, sobre ese precio (ver <a href="/docs/promociones.html">Promociones</a>).</p>
 <div class="callout">
-<p><strong>Tip:</strong> si nunca configurás listas de precio, todo funciona igual que siempre — el sistema cae directo al precio de catálogo.</p>
+<p><strong>Si nunca creás una lista, todo funciona igual:</strong> el POS cobra el precio de venta de cada producto.</p>
 </div>
+<div class="callout warn">
+<p><strong>El POS sólo mira la lista predeterminada.</strong> La lista que se le asigna a un cliente en su ficha queda guardada, pero no cambia el precio en el mostrador.</p>
+</div>
+<h2>Crear una lista</h2>
+<ol class="step-list">
+<li>Andá a <strong>Catálogo y precios → Listas de precio</strong> y tocá <strong>Nueva lista</strong> (o <strong>Crear primera lista</strong>).</li>
+<li>Escribí el <strong>Nombre</strong> (por ejemplo, «Mayorista») y, si querés, una <strong>Descripción</strong>.</li>
+<li>En <strong>Importar precios iniciales</strong> elegí cómo arrancar: <strong>Empezar vacía</strong>, <strong>Copiar precio de venta actual de cada producto</strong>, <strong>Copiar precio de costo de cada producto</strong> o <strong>Copiar desde otra lista</strong> (y elegí la <strong>Lista de origen</strong>).</li>
+<li>Tocá <strong>Crear lista</strong>.</li>
+</ol>
+<p>En la fila de cada lista: <strong>Editar precios</strong>, <strong>Marcar como predeterminada</strong>, activar o desactivar la lista y <strong>Eliminar lista</strong> (borra también todos sus precios).</p>
+<h2>Cargar los precios</h2>
+<p>Al abrir una lista con <strong>Editar precios</strong> se ven los productos con su <strong>Precio de lista</strong>, editable. Escribí los precios y tocá <strong>Guardar precios</strong>. Se puede filtrar por <strong>Categoría</strong>. El costo y el margen sólo los ven quienes tienen permiso para ver costos.</p>
+<ul>
+<li><strong>Actualizar en lote:</strong> aplica un porcentaje a muchos precios a la vez. Elegí la <strong>Base de cálculo</strong> (los precios actuales de la lista, el precio de venta o el precio de costo de cada producto), el <strong>Porcentaje de ajuste</strong> (<kbd>10</kbd> para +10 %, <kbd>-5</kbd> para -5 %) y a qué <strong>Aplicar</strong> (todos los productos o una categoría).</li>
+<li><strong>Importar precios:</strong> copia los precios de otra lista (<strong>Desde otra lista</strong>).</li>
+<li><strong>Configurar:</strong> cambia el nombre y la descripción de la lista, o la elimina.</li>
+</ul>
+<h2>Quiebres por cantidad</h2>
+<p>Un quiebre es un precio menor a partir de cierta cantidad: «de 6 unidades en adelante, $900 cada una».</p>
+<ol class="step-list">
+<li>En la fila del producto, tocá <strong>Quiebres</strong>.</li>
+<li>Tocá <strong>+ Agregar quiebre</strong> y completá <strong>Cant.</strong> (la cantidad mínima) y <strong>Precio</strong>.</li>
+<li>Tocá <strong>Guardar quiebres</strong>.</li>
+</ol>
+<p>El precio base de la lista rige hasta el primer quiebre; de ahí en más, el del quiebre alcanzado. <strong>La cantidad cuenta por producto en la venta:</strong> dos talles de la misma remera de a una unidad suman 2, y un producto escaneado dos veces en dos líneas también. Productos distintos no se suman.</p>
+<h2>Promociones con vigencia y precio por sucursal</h2>
+<p>Un precio promocional con ventana de fecha y hora, y opcionalmente para una sola sucursal.</p>
+<ol class="step-list">
+<li>En la fila del producto, tocá <strong>Promociones</strong>.</li>
+<li>En <strong>Nueva promoción</strong> escribí el <strong>Precio promocional</strong>.</li>
+<li>Opcionales: <strong>Cantidad mínima</strong> (vacío, cualquiera), <strong>Vigente desde</strong> (vacío, ahora) y <strong>Vigente hasta</strong> (vacío, sin fin).</li>
+<li>En <strong>Sucursal</strong> elegí para cuál rige, o dejá <strong>Todas las sucursales</strong>.</li>
+<li>Tocá <strong>+ Agregar promoción</strong>.</li>
+</ol>
+<p>Cada promoción cargada se puede sacar con <strong>Quitar promoción</strong>. Fuera de su ventana, rige el precio de la lista. Las vigencias son en <strong>hora de Argentina</strong>: una promoción de 18 a 20 hs rige de 18 a 20 hs.</p>
+<div class="callout">
+<p><strong>El precio por sucursal:</strong> el select <strong>Sucursal</strong> sólo aparece con dos o más sucursales activas. Una caja cobra el precio de la sucursal en la que abrió el turno; las demás cobran el precio general. Sin precios por sucursal cargados, nada cambia.</p>
+</div>
+<h2>Si el precio cambia mientras se vende</h2>
+<p>El servidor revalida el precio de cada línea al cobrar. Si cambiaste una lista con una venta a medio armar, el cajero ve un aviso y el total nuevo, y vuelve a cobrar. Ver <a href="/docs/punto-de-venta.html">Punto de venta</a>.</p>
+<h2>Actualización masiva de precios</h2>
+<p>Con la inflación, cargar precios a mano contra la lista de un proveedor no escala. En <strong>Catálogo y precios → Listas de precio → Actualización de precios</strong>:</p>
+<ol class="step-list">
+<li>Subí la <strong>Planilla de precios</strong> del proveedor: un archivo <kbd>.xlsx</kbd> con una columna de código de barras y una de costo.</li>
+<li>El sistema lee la planilla y muestra una <strong>vista previa</strong>: por cada producto, el costo de <kbd>antes → después</kbd> y el precio de venta nuevo.</li>
+<li>Revisá y tocá <strong>Aplicar</strong>.</li>
+</ol>
+<ul>
+<li>El costo se actualiza con el de la planilla y el <strong>precio de venta se recalcula manteniendo el margen</strong> que cada producto ya tenía.</li>
+<li>Un producto sin costo previo no tiene margen del que partir: se le actualiza el costo y la venta queda igual (la vista previa lo marca).</li>
+<li>Los códigos que no corresponden a ningún producto se listan aparte como <kbd>código sin producto</kbd>.</li>
+</ul>
 <div class="docs-nav-footer">
 <a href="/docs/catalogo.html">← Catálogo</a>
-<a href="/docs/punto-de-venta.html">Punto de venta →</a>
+<a href="/docs/promociones.html">Promociones →</a>
 </div>
   </main>
 </div>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reportes — Documentación VentaLibra</title>
+  <meta name="description" content="Dashboard, ventas por período, margen y rotación, caja por medio y libros de IVA.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,42 +29,82 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html" class="active">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Reportes</h1>
-<p class="docs-lead">Ventas, caja y stock de un vistazo. Incluidos en el plan único.</p>
-<h2>Ventas</h2>
-<p>Total de ventas confirmadas en un rango de fechas, desglose por día y el top-10 de productos más vendidos.</p>
-<h2>Caja</h2>
-<p>Resumen de ingresos del período — mismo motor que usan Contalibra y Restolibra para su propia caja.</p>
-<h2>Stock</h2>
-<p>Stock actual de cada producto (sumado entre todas las sucursales), con una marca visual para los productos con stock bajo o en cero.</p>
+<p class="docs-lead">El tablero del mes, las ventas por período, los medios de pago, lo más vendido, el margen, la caja por medio y los libros de IVA. Para el administrador y el encargado.</p>
+<h2>Dashboard</h2>
+<p>Es la pantalla de inicio del administrador y el encargado (<strong>Dashboard</strong>, arriba en el menú). Resume el mes en curso:</p>
+<ul>
+<li><strong>Facturado este mes</strong>, con la cantidad de facturas.</li>
+<li><strong>Cobrado este mes</strong>: los ingresos en caja.</li>
+<li><strong>Egresos este mes</strong>: los gastos en caja.</li>
+<li><strong>Saldo total en caja</strong>, acumulado histórico.</li>
+<li><strong>Facturas sin cobrar</strong> y los <strong>Últimos movimientos de caja</strong>.</li>
+</ul>
+<h2>Reportes</h2>
+<p>En <strong>Reportes → Reportes</strong> elegí el período con <strong>Desde</strong> y <strong>Hasta</strong>, y cómo agrupar con <strong>Agrupar por</strong>: <kbd>Día</kbd>, <kbd>Semana</kbd> o <kbd>Mes</kbd>.</p>
+<table class="docs-table">
+<thead><tr><th>Bloque</th><th>Qué muestra</th></tr></thead>
+<tbody>
+<tr><td><strong>Resumen</strong></td><td>Ventas en el período, total vendido, facturas emitidas y movimientos de caja</td></tr>
+<tr><td><strong>Ventas en el período</strong></td><td>Cuántas ventas y cuánto, por día, semana o mes</td></tr>
+<tr><td><strong>Medios de pago</strong></td><td>Cuánto se cobró con cada medio</td></tr>
+<tr><td><strong>Productos más vendidos</strong></td><td>Los productos con más unidades y su total</td></tr>
+<tr><td><strong>Caja por tipo de movimiento</strong></td><td>Ingresos y egresos de caja agrupados por tipo</td></tr>
+<tr><td><strong>Stock bajo mínimo</strong></td><td>Los productos cuyo stock actual está bajo su mínimo, con lo que les <strong>Faltante</strong></td></tr>
+</tbody>
+</table>
+<p>Cada bloque tiene su botón <strong>CSV</strong> para abrirlo en una planilla.</p>
 <div class="callout">
-<p><strong>Acceso:</strong> los reportes son admin-only, sin gating adicional por módulo.</p>
+<p><strong>Qué cuenta como venta:</strong> una venta anulada o pendiente de cobro no cuenta; las devoluciones se restan. Lo que se <strong>fía</strong> es venta pero no es cobro: no entra en la caja hasta que el cliente paga.</p>
 </div>
+<h2>Margen y rotación</h2>
+<p><strong>Reportes → Margen y rotación</strong> dice cuánto se ganó, por producto y por período: <strong>Unidades</strong> vendidas, <strong>Ingreso</strong>, <strong>Costo</strong>, <strong>Margen</strong> en pesos y <strong>Margen %</strong>. Filtrás por <strong>Desde</strong>, <strong>Hasta</strong> y <strong>Agrupar por</strong>; <strong>Ver sólo este producto</strong> acota a uno; <strong>CSV</strong> lo baja.</p>
+<ul>
+<li>Desde que la venta guarda el <strong>costo de cada línea</strong> al venderse, el margen de las ventas nuevas es exacto: un cambio de costo posterior no lo altera.</li>
+<li>Las ventas anteriores usan el costo de hoy y el reporte lo marca como <kbd>costo estimado</kbd>.</li>
+<li>Un producto sin costo cargado se marca <kbd>sin costo</kbd>: su margen figura 100 % y no es real. Cargale el costo.</li>
+</ul>
+<h2>Caja por medio</h2>
+<p><strong>Reportes → Caja por medio</strong> es el cuadro de lo que entró y salió por cada medio de cobro y cada caja, en un período: <strong>Total Ingresos</strong>, <strong>Total Egresos</strong>, <strong>Saldo Neto</strong> y, por medio, <strong>Operaciones</strong>, <strong>Ingresos</strong>, <strong>Egresos</strong> y <strong>Saldo</strong>. Se acota por <strong>Caja</strong> y se baja con <strong>Exportar CSV</strong>. La cuenta corriente no aparece: fiar no es cobrar.</p>
+<h2>Libros IVA</h2>
+<p><strong>Reportes → Libros IVA</strong> (<strong>Libros IVA Digital</strong>) arma lo que se presenta ante ARCA, por período:</p>
+<ul>
+<li><strong>IVA Ventas</strong>: los comprobantes emitidos, con un <strong>Resumen por alícuota</strong> (neto gravado, IVA y total). Genera los archivos <kbd>REGINFO_VENTAS_CBTE</kbd> y <kbd>REGINFO_VENTAS_ALICUOTAS</kbd> para el aplicativo de ARCA. Los comprobantes tipo C van sin alícuotas y las notas de crédito se exportan con importes negativos.</li>
+<li><strong>IVA Compras</strong>: el IVA crédito fiscal de los gastos cargados como <strong>Factura</strong> en <a href="/docs/tesoreria-y-egresos.html">Egresos</a> (<kbd>REGINFO_COMPRAS_CBTE</kbd> y <kbd>REGINFO_COMPRAS_ALICUOTAS</kbd>). Se asume factura A salvo que el egreso indique otro tipo.</li>
+</ul>
 <div class="docs-nav-footer">
 <a href="/docs/facturacion.html">← Facturación electrónica</a>
-<a href="/docs/usuarios-roles.html">Usuarios y roles →</a>
+<a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos →</a>
 </div>
   </main>
 </div>

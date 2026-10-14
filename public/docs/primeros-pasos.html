@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Primeros pasos — Documentación VentaLibra</title>
+  <meta name="description" content="De una instancia nueva a la primera venta: empresa, ARCA, sucursales, usuarios, productos y stock inicial.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,56 +29,107 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html" class="active">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Primeros pasos</h1>
-<p class="docs-lead">Guía de inicio rápido para configurar VentaLibra y empezar a vender.</p>
+<p class="docs-lead">De una instancia recién creada a la primera venta, en el orden en que conviene hacerlo. Las pantallas de configuración las ve sólo un administrador.</p>
 <h2>Acceder al sistema</h2>
 <div class="callout">
 <p><strong>https://tu-comercio.ventalibra.com.ar</strong></p>
-<p>El subdominio es el identificador único de tu comercio. Si no lo recordás, contactá a soporte.</p>
+<p>El subdominio es el identificador único de tu comercio. Cada comercio tiene su propia instancia y su propia base de datos: no compartís datos con nadie.</p>
 </div>
-<h2>Cargar tu catálogo</h2>
+<p>Ingresá con tu <strong>Usuario</strong> y tu <strong>Contraseña</strong>, tildá <strong>No soy un robot</strong> si el recuadro aparece y tocá <strong>Ingresar</strong>. Si la olvidaste, tocá <strong>¿Olvidaste tu contraseña?</strong>: el enlace llega por correo sólo si el administrador cargó el <a href="/docs/configuracion.html">correo saliente</a>.</p>
+<p>Si el sistema muestra los <strong>Términos y condiciones</strong> antes de dejarte operar, hay que leerlos y aceptarlos: hasta entonces las pantallas no responden.</p>
+<h2>1. Los datos de tu empresa</h2>
 <ol class="step-list">
-<li>Creá al menos una <strong>unidad</strong> (por ejemplo, "unidad" o "kilogramo" si vendés por fracción).</li>
-<li>Cargá tus <strong>productos</strong> con precio de venta.</li>
-<li>Opcional: agregá <strong>códigos de barra</strong> y <strong>variantes</strong> de talle/color si corresponde.</li>
+<li>Andá a <strong>Administración → Configuración → Empresa</strong>.</li>
+<li>Cargá <strong>Nombre</strong>, <strong>CUIT</strong>, <strong>Dirección</strong>, <strong>Teléfono</strong>, <strong>Email</strong>, <strong>Ingresos Brutos</strong> e <strong>Inicio de actividades</strong>.</li>
+<li>Elegí la <strong>Condición de IVA</strong>: de ella depende el tipo de factura que vas a emitir (ver <a href="/docs/facturacion.html">Facturación electrónica</a>).</li>
+<li>Subí el <strong>Logo</strong> (PNG o JPG) y tocá <strong>Guardar datos de empresa</strong>.</li>
 </ol>
-<h2>Cargar el stock inicial</h2>
-<p>Andá a <strong>Stock → Ajuste</strong> y cargá la cantidad inicial de cada producto. A partir de ahí, el stock se actualiza solo con cada venta y recepción de compra.</p>
-<h2>Tu primera venta</h2>
+<p>Hacelo primero: el nombre y el CUIT encabezan el ticket y los comprobantes.</p>
+<h2>2. ARCA (facturación electrónica)</h2>
 <ol class="step-list">
-<li>Andá a <strong>Punto de venta</strong>.</li>
-<li>Buscá el producto por nombre o escaneá su código de barras.</li>
-<li>Elegí la sucursal y el medio de pago.</li>
-<li>Confirmá — si tenés facturación activa, podés pedir la factura en este paso.</li>
+<li>Andá a <strong>Configuración → Integraciones → ARCA / AFIP</strong>.</li>
+<li>En la pestaña <strong>General</strong> cargá el <strong>CUIT</strong> y el <strong>Punto de venta</strong>.</li>
+<li>En la pestaña <strong>Homologación</strong> subí el <strong>Certificado (.crt)</strong> y la <strong>Clave privada (.key)</strong> para probar. Si todavía no tenés certificado, usá <strong>Generar pedido de certificado</strong>.</li>
+<li>Cuando probaste, cargá lo mismo en la pestaña <strong>Producción</strong>.</li>
+<li>Elegí el <strong>Ambiente para facturar</strong>, tocá <strong>Guardar ARCA</strong> y después <strong>Probar conexión</strong>.</li>
 </ol>
-<div class="callout warn">
-<p><strong>Todo incluido:</strong> VentaLibra tiene un único plan, con la facturación electrónica, los reportes y las sucursales disponibles desde el primer día.</p>
-</div>
+<p>Si no vas a facturar todavía, podés saltear este paso: se puede vender sin factura. Ver <a href="/docs/configuracion.html">Configuración</a>.</p>
+<h2>3. Sucursales y depósitos</h2>
+<p>Toda instancia nueva trae <strong>Sucursal 1</strong> con su depósito y su caja. Andá a <strong>Inventario → Sucursales y depósitos</strong>, tocá <strong>Editar</strong> y poné el nombre real del local. Si tenés más de un local o más de un lugar donde guardás mercadería, ver <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>.</p>
+<h2>4. Cajas</h2>
+<p>En <strong>Caja y tesorería → Cajas</strong> hay una caja por sucursal. Sumá una por cada mostrador donde se cobre: cada una lleva su propio arqueo. Ver <a href="/docs/caja.html">Caja y turnos</a>.</p>
+<h2>5. Unidades y categorías</h2>
+<ol class="step-list">
+<li>En <strong>Configuración → Unidades de medida</strong> revisá que estén las unidades con las que vendés. Una unidad con <strong>Fracción</strong> admite cantidades con decimales (kilos, litros): la necesitás para la <a href="/docs/balanza.html">balanza</a>.</li>
+<li>En <strong>Configuración → Categorías</strong> cargá las categorías con <strong>+ Nueva categoría</strong>. Un producto sólo puede llevar una categoría que exista y esté activa.</li>
+</ol>
+<h2>6. Usuarios</h2>
+<ol class="step-list">
+<li>Andá a <strong>Administración → Usuarios</strong> y tocá <strong>+ Nuevo usuario</strong>.</li>
+<li>Completá <strong>Usuario</strong>, <strong>Nombre</strong> (opcional), <strong>Contraseña</strong> (mínimo 6 caracteres) y <strong>Rol</strong>.</li>
+</ol>
+<p>Dale a cada persona el rol de menor privilegio que le alcance para trabajar. Ver <a href="/docs/usuarios-roles.html">Usuarios y roles</a>.</p>
+<h2>7. Productos</h2>
+<ol class="step-list">
+<li>Andá a <strong>Catálogo y precios → Productos</strong> y tocá <strong>Nuevo producto</strong>.</li>
+<li>Cargá <strong>Nombre</strong>, <strong>Código</strong> (el de barras, si lo tiene), <strong>Categoría</strong>, <strong>Unidad</strong>, <strong>Tipo</strong>, <strong>Precio de venta</strong> y <strong>Precio de costo</strong>.</li>
+<li>Si es perecedero, activá <strong>Vence (maneja lotes y fecha de vencimiento)</strong>.</li>
+<li>Tocá <strong>Crear producto</strong>.</li>
+</ol>
+<p>Si tenés muchos productos, pedile al administrador del sistema que los cargue en bloque. Ver <a href="/docs/catalogo.html">Catálogo</a>.</p>
+<h2>8. El stock inicial</h2>
+<ol class="step-list">
+<li>Andá a <strong>Inventario → Stock</strong> y, en el producto, tocá <strong>Ajustar stock</strong>.</li>
+<li>Elegí el <strong>Depósito</strong>, dejá <strong>Fijar en…</strong> y escribí el <strong>Stock nuevo</strong> contado.</li>
+<li>Tocá <strong>Guardar movimiento</strong>.</li>
+</ol>
+<p>Para un producto que vence, cargá el stock con lote desde <strong>Vencimientos y lotes → Cargar stock con lote</strong>: así la mercadería entra con su fecha desde el primer día. Ver <a href="/docs/stock-inventario.html">Stock e inventario</a> y <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>.</p>
+<h2>9. Precios por lista (opcional)</h2>
+<p>El POS cobra el precio de venta de cada producto. Si querés precios por cantidad, por fecha o por sucursal, creá una lista en <strong>Catálogo y precios → Listas de precio</strong> y marcala como <strong>predeterminada</strong>. Ver <a href="/docs/listas-de-precio.html">Listas de precio</a>.</p>
+<h2>10. Tu primera venta</h2>
+<ol class="step-list">
+<li>Andá a <strong>Mostrador → POS (Caja)</strong>. Como no hay turno abierto, aparece <strong>Abrir turno</strong>.</li>
+<li>Elegí la <strong>Sucursal</strong> y la <strong>Caja</strong>, escribí el <strong>Efectivo inicial en caja</strong> (lo que hay en el cajón) y tocá <strong>Abrir turno</strong>.</li>
+<li>Escaneá un producto, o escribí parte del nombre.</li>
+<li>Tocá <strong>Cobrar</strong> (o <kbd>F2</kbd>), elegí el medio de pago y confirmá.</li>
+</ol>
+<p>Ver <a href="/docs/punto-de-venta.html">Punto de venta</a>.</p>
+<h2>11. Al terminar el día</h2>
+<p>Cerrá tu turno con <strong>Cerrar turno</strong> contando el efectivo del cajón. El encargado o el administrador hace después el <strong>Cierre diario</strong> de la sucursal. Ver <a href="/docs/caja.html">Caja y turnos</a>.</p>
 <div class="docs-nav-footer">
 <a href="/docs/">← Introducción</a>
-<a href="/docs/catalogo.html">Catálogo →</a>
+<a href="/docs/punto-de-venta.html">Punto de venta →</a>
 </div>
   </main>
 </div>

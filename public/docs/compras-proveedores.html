@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compras a proveedores — Documentación VentaLibra</title>
+  <meta name="description" content="Órdenes de compra: crear, enviar, cancelar y recibir mercadería.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,44 +29,92 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html" class="active">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Compras a proveedores</h1>
-<p class="docs-lead">Órdenes de compra y recepciones, con actualización automática de costo y stock.</p>
-<h2>Orden de compra (opcional)</h2>
-<p>Podés armar una orden de compra con líneas por producto y cantidad, para llevar seguimiento de lo pedido a un proveedor. Una orden queda marcada como <kbd>parcial</kbd> o <kbd>recibida</kbd> según lo que efectivamente se recepcione.</p>
-<h2>Recepción</h2>
-<p>Una recepción puede estar vinculada a una orden de compra, o cargarse directamente sin orden previa. Al <strong>confirmar</strong> una recepción:</p>
+<p class="docs-lead">Órdenes de compra, desde el borrador hasta la recepción de la mercadería, con actualización automática de stock y costo.</p>
+<h2>El circuito</h2>
+<table class="docs-table">
+<thead><tr><th>Estado de la orden</th><th>Qué significa</th></tr></thead>
+<tbody>
+<tr><td><kbd>Borrador</kbd></td><td>Recién creada, o generada desde la <a href="/docs/reposicion.html">reposición</a>. Todavía no se la mandaste al proveedor.</td></tr>
+<tr><td><kbd>Enviada</kbd></td><td>La marcaste como enviada al proveedor.</td></tr>
+<tr><td><kbd>Recibida parcial</kbd></td><td>Llegó una parte de lo pedido.</td></tr>
+<tr><td><kbd>Recibida</kbd></td><td>Llegó todo.</td></tr>
+<tr><td><kbd>Cancelada</kbd></td><td>Se descartó. No se puede reabrir.</td></tr>
+</tbody>
+</table>
+<p>Borrador → Enviada → Recibida parcial → Recibida. Un borrador o una enviada se pueden cancelar mientras no haya entrado mercadería.</p>
+<p>Las órdenes se ven y se manejan en <strong>Compras → Compras</strong>. Las crea y las maneja el administrador y el encargado; el depósito las ve sin importes y no recibe.</p>
+<h2>Crear una orden</h2>
+<ol class="step-list">
+<li>En <strong>Compras</strong>, tocá <strong>Nueva compra</strong>.</li>
+<li>Elegí el <strong>Proveedor</strong> y tocá <strong>Crear</strong>. La orden nace en <kbd>Borrador</kbd> con su número (<kbd>OC-000001</kbd>) y se abre su detalle.</li>
+<li>En <strong>Agregar línea</strong>: elegí el <strong>Producto</strong>, la <strong>Cantidad</strong> y el <strong>Costo unitario</strong>, y tocá <strong>Agregar línea</strong>. Repetí por cada producto.</li>
+</ol>
+<p>Se pueden agregar líneas mientras la orden está en borrador o enviada. La lista de órdenes se busca por número o proveedor.</p>
+<h2>Enviar al proveedor</h2>
+<p>En el detalle de la orden, <strong>Enviar al proveedor</strong> pasa la orden de <kbd>Borrador</kbd> a <kbd>Enviada</kbd> y registra la fecha del primer envío. Es un <strong>estado</strong>, no un correo: el sistema no le avisa al proveedor por ningún medio; lo que hace es dejar claro que la orden ya se pidió. Una orden enviada cuenta como «en camino» en la reposición.</p>
+<h2>Cancelar una orden</h2>
+<ol class="step-list">
+<li>En el detalle, tocá <strong>Cancelar orden</strong>.</li>
+<li>Confirmá <strong>¿Cancelar la orden OC-…?</strong> con <strong>Sí, cancelar la orden</strong>.</li>
+</ol>
 <ul>
-<li>Se suma el stock recibido de cada producto (o variante).</li>
-<li>Se actualiza el <strong>costo</strong> del producto al último precio pagado.</li>
-<li>Si está vinculada a una orden, se actualiza su estado según lo recibido.</li>
+<li>La orden deja de contar como pedida en la reposición y ya no se le puede recibir mercadería. <strong>No se puede reabrir.</strong></li>
+<li>Sólo se cancela un borrador o una enviada. Si ya entró mercadería (<kbd>Recibida parcial</kbd> o <kbd>Recibida</kbd>), no: devolverle al proveedor es otra operación.</li>
+</ul>
+<h2>Recibir la mercadería</h2>
+<p>La recepción se hace <strong>dentro de la orden</strong>, y la hace el administrador o el encargado, porque fija el costo del producto.</p>
+<ol class="step-list">
+<li>En el detalle, tocá <strong>Recibir mercadería</strong>.</li>
+<li>Por cada línea, escribí en <strong>Recibir</strong> la cantidad que llegó (no puede superar lo <strong>Pendiente</strong>) y revisá el <strong>Costo unitario</strong>.</li>
+<li>Si el producto vence, completá <strong>Lote</strong> y <strong>Vencimiento</strong> de esa línea (los dos, o ninguno).</li>
+<li>Elegí el <strong>Depósito de destino</strong> y, si querés, el <strong>Remito / comprobante</strong>.</li>
+<li>Tocá <strong>Recibir</strong>.</li>
+</ol>
+<p>Al confirmarse:</p>
+<ul>
+<li><strong>Se suma el stock</strong> recibido en el depósito elegido, con su lote y vencimiento.</li>
+<li><strong>El costo del producto pasa a ser el último costo pagado</strong>. Cambia el margen de ese producto.</li>
+<li>La orden pasa a <kbd>Recibida parcial</kbd> o <kbd>Recibida</kbd> según lo pendiente. Podés recibir en varias entregas.</li>
+<li>Abajo, <strong>Recepciones de esta orden</strong> lista cada recepción con su fecha, remito y estado.</li>
 </ul>
 <div class="callout">
-<p><strong>Tip:</strong> no hace falta una orden de compra para recibir mercadería — podés cargar una recepción directa si el proveedor no requiere seguimiento formal.</p>
+<p><strong>Recibir es seguro de repetir.</strong> Si se cortó la conexión justo al recibir, el sistema no sabe si llegó a registrarse: guarda el intento y te ofrece <strong>Reenviar el intento anterior</strong>. Si ya estaba registrado, no suma el stock dos veces y lo avisa (<kbd>Esa recepción ya estaba registrada</kbd>). Con <strong>Sí, descartar el intento anterior</strong> lo olvidás para cargar otra distinta.</p>
 </div>
+<h2>Quién ve los costos</h2>
+<p>El costo y el subtotal de las líneas los ven sólo el administrador y el encargado. El depósito ve qué se pidió y qué llegó, sin importes.</p>
 <div class="docs-nav-footer">
-<a href="/docs/stock-inventario.html">← Stock e inventario</a>
+<a href="/docs/reposicion.html">← Reposición sugerida</a>
 <a href="/docs/clientes-proveedores.html">Clientes y proveedores →</a>
 </div>
   </main>

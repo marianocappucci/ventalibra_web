@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Usuarios y roles — Documentación VentaLibra</title>
+  <meta name="description" content="Los cinco roles, qué ve y qué hace cada uno, y cómo administrar usuarios.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,56 +29,178 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html" class="active">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html" class="active">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
-    <h1>Usuarios, roles y precio</h1>
-<p class="docs-lead">Dos roles de usuario y un único plan, con todas las funcionalidades incluidas.</p>
-<h2>Roles</h2>
+    <h1>Usuarios y roles</h1>
+<p class="docs-lead">Cinco roles, cada uno con las pantallas y acciones que su trabajo necesita. Sin límite de usuarios.</p>
+<h2>Los roles</h2>
 <table class="docs-table">
-<thead><tr><th>Rol</th><th>Puede hacer</th></tr></thead>
+<thead><tr><th>Rol</th><th>Para quién</th><th>Entra a</th></tr></thead>
 <tbody>
-<tr><td><strong>admin</strong></td><td>Todo: catálogo, usuarios, configuración ARCA, reportes</td></tr>
-<tr><td><strong>staff</strong></td><td>Vender desde el punto de venta y operar el catálogo/stock del día a día. No accede a reportes ni configuración ARCA.</td></tr>
+<tr><td><strong>Admin</strong></td><td>El dueño o quien administra el sistema: todo, incluida la configuración, los usuarios y la estructura</td><td>Dashboard</td></tr>
+<tr><td><strong>Encargado</strong></td><td>Quien maneja el local: todo menos usuarios, configuración, logs, estructura (sucursales, depósitos y cajas) y reabrir un día cerrado</td><td>Dashboard</td></tr>
+<tr><td><strong>Vendedor</strong></td><td>Mostrador con clientes: vende, fía y cobra cuentas corrientes; no ve costos, márgenes ni reportes</td><td>POS (Caja)</td></tr>
+<tr><td><strong>Cajero</strong></td><td>Vende y maneja su turno y su caja; no ve cierre diario, cuentas corrientes ni reportes</td><td>POS (Caja)</td></tr>
+<tr><td><strong>Depósito</strong></td><td>Maneja la mercadería: stock, ajustes, transferencias, vencimientos, reposición; no vende, no recibe compras y no ve plata</td><td>Stock</td></tr>
 </tbody>
 </table>
-<h2>Plan único</h2>
+<p>El menú de cada persona muestra sólo lo suyo: una sección sin pantallas visibles no se dibuja. Si alguien entra a una pantalla que no es de su rol por un enlace, el sistema lo lleva a su pantalla de inicio. <strong>El permiso lo cortan los servidores</strong>, no sólo el menú: una acción que el rol no tiene responde «no tenés permiso» aunque se intente por otro camino.</p>
+<h2>Qué ve y qué hace cada rol</h2>
+<h3>Pantallas, rol por rol</h3>
+<p>Lo que no figura en la lista de un rol, ese rol no lo ve.</p>
+<h4>Admin</h4>
+<ul>
+<li>Dashboard</li>
+<li>POS (Caja)</li>
+<li>Ventas: todas</li>
+<li>Clientes</li>
+<li>Cuentas corrientes</li>
+<li>Turnos: los de todos</li>
+<li>Cierre diario, y reabrir un día cerrado</li>
+<li>Cajas</li>
+<li>Tesorería y Egresos</li>
+<li>Productos: edita</li>
+<li>Etiquetas</li>
+<li>Listas de precio, Actualización de precios, Promociones</li>
+<li>Stock: ajusta</li>
+<li>Transferencias</li>
+<li>Vencimientos y lotes</li>
+<li>Reposición sugerida</li>
+<li>Sucursales y depósitos: edita</li>
+<li>Compras</li>
+<li>Proveedores</li>
+<li>Reportes, Margen y rotación, Caja por medio, Libros IVA</li>
+<li>Usuarios, Logs, Configuración</li>
+</ul>
+<h4>Encargado</h4>
+<ul>
+<li>Dashboard</li>
+<li>POS (Caja)</li>
+<li>Ventas: todas</li>
+<li>Clientes</li>
+<li>Cuentas corrientes</li>
+<li>Turnos: los de todos</li>
+<li>Cierre diario</li>
+<li>Tesorería y Egresos</li>
+<li>Productos: edita</li>
+<li>Etiquetas</li>
+<li>Listas de precio, Actualización de precios, Promociones</li>
+<li>Stock: ajusta</li>
+<li>Transferencias</li>
+<li>Vencimientos y lotes</li>
+<li>Reposición sugerida</li>
+<li>Sucursales y depósitos: sólo lectura</li>
+<li>Compras</li>
+<li>Proveedores</li>
+<li>Reportes, Margen y rotación, Caja por medio, Libros IVA</li>
+</ul>
+<h4>Vendedor</h4>
+<ul>
+<li>POS (Caja)</li>
+<li>Ventas: las de sus turnos</li>
+<li>Clientes</li>
+<li>Cuentas corrientes</li>
+<li>Turnos: los suyos</li>
+<li>Productos: consulta</li>
+<li>Stock: consulta</li>
+</ul>
+<h4>Cajero</h4>
+<ul>
+<li>POS (Caja)</li>
+<li>Ventas: las de sus turnos</li>
+<li>Clientes: no tiene la pantalla; elige uno desde el POS</li>
+<li>Turnos: los suyos</li>
+</ul>
+<h4>Depósito</h4>
+<ul>
+<li>Productos: sólo la reposición</li>
+<li>Stock: ajusta</li>
+<li>Transferencias</li>
+<li>Vencimientos y lotes</li>
+<li>Reposición sugerida</li>
+<li>Sucursales y depósitos: sólo lectura</li>
+<li>Compras: sólo lectura, sin importes</li>
+</ul>
+<h3>Acciones delicadas</h3>
 <table class="docs-table">
-<thead><tr><th>Concepto</th><th>Precio final mensual</th></tr></thead>
+<thead><tr><th>Acción</th><th>Quién</th></tr></thead>
 <tbody>
-<tr><td>Instancia con una sucursal incluida</td><td>$39.900</td></tr>
-<tr><td>Cada sucursal adicional en la misma instancia</td><td>$19.950</td></tr>
-<tr><td>Cada instancia independiente adicional</td><td>$39.900</td></tr>
+<tr><td>Cobrar, facturar desde el POS, imprimir ticket</td><td>Admin, encargado, vendedor, cajero</td></tr>
+<tr><td>Anular una venta o devolver productos (las que ve)</td><td>Admin, encargado, vendedor, cajero</td></tr>
+<tr><td>Anular una venta ya facturada con CAE</td><td>Hace falta antes la nota de crédito, que emite sólo el admin</td></tr>
+<tr><td>Emitir una nota de crédito</td><td>Sólo admin</td></tr>
+<tr><td>Ver y cerrar los turnos de otras personas</td><td>Admin, encargado</td></tr>
+<tr><td>Reabrir un día cerrado</td><td>Sólo admin</td></tr>
+<tr><td>Dar de baja un pago de cuenta corriente</td><td>Admin, encargado</td></tr>
+<tr><td>Crear y editar productos, códigos y variantes</td><td>Admin, encargado</td></tr>
+<tr><td>Marcar qué productos vencen</td><td>Admin, encargado</td></tr>
+<tr><td>Ver el costo de la mercadería y los márgenes</td><td>Admin, encargado</td></tr>
+<tr><td>Ajustar stock y transferir entre depósitos</td><td>Admin, encargado, depósito</td></tr>
+<tr><td>Cargar stock con lote, asignar vencimiento y dar de baja un lote</td><td>Admin, encargado, depósito</td></tr>
+<tr><td>Cargar plazo, stock máximo, proveedor habitual y mínimos por sucursal</td><td>Admin, encargado, depósito</td></tr>
+<tr><td>Generar órdenes de compra desde la reposición</td><td>Admin, encargado</td></tr>
+<tr><td>Crear, enviar y cancelar órdenes de compra; recibir mercadería</td><td>Admin, encargado</td></tr>
+<tr><td>Crear sucursales, depósitos y cajas</td><td>Sólo admin</td></tr>
 </tbody>
 </table>
 <div class="callout">
-<p><strong>Todo incluido:</strong> punto de venta, catálogo, stock, compras, listas de precio, caja, facturación electrónica ARCA, reportes, varias sucursales y usuarios ilimitados. Precio final mensual. IVA incluido si corresponde.</p>
+<p><strong>Los costos no viajan a quien no los ve.</strong> El precio de costo de un producto y el costo y subtotal de las compras se sacan de las respuestas del sistema para el vendedor, el cajero y el depósito: no es que la pantalla los esconda, es que nunca les llegan. Por eso el depósito ve las órdenes de compra sin importes.</p>
 </div>
 <div class="callout">
-<p><strong>¿Querés sumar una sucursal o una instancia?</strong> Escribinos por WhatsApp desde la <a href="/#planes">página de precio</a>.</p>
+<p><strong>El cajero y el vendedor ven sólo las ventas de sus turnos</strong>, abiertos o cerrados. Quien cobró una venta ayer la puede devolver hoy; una venta ajena no la ve ni la abre.</p>
+</div>
+<h2>Administrar usuarios</h2>
+<p>Lo hace sólo un administrador, en <strong>Administración → Usuarios</strong>.</p>
+<h3>Crear un usuario</h3>
+<ol class="step-list">
+<li>Tocá <strong>+ Nuevo usuario</strong>.</li>
+<li>Completá <strong>Usuario</strong>, <strong>Nombre</strong> (opcional), <strong>Contraseña</strong> (mínimo 6 caracteres) y <strong>Rol</strong>.</li>
+<li>Guardá.</li>
+</ol>
+<p>El rol que viene preseleccionado es el de <strong>Cajero</strong>, el de menos privilegio que sirve para trabajar. Asigná el que le corresponda.</p>
+<h3>En la lista</h3>
+<ul>
+<li><strong>Editar</strong>: nombre, correo y rol.</li>
+<li><strong>Cambiar contraseña</strong>: la nueva para esa persona.</li>
+<li><strong>Desactivar</strong> y <strong>Activar</strong>: una persona desactivada no puede entrar, pero conserva su historial. Es lo que corresponde cuando alguien se va del comercio.</li>
+<li><strong>Eliminar</strong>: no se puede eliminar al único admin activo ni al usuario con el que estás trabajando.</li>
+</ul>
+<h3>Cada persona, su contraseña</h3>
+<p>Cualquier usuario puede cambiar la suya desde el menú de su cuenta (arriba a la derecha): <strong>Cambiar contraseña</strong>. Si la olvidó, en la pantalla de ingreso está <strong>¿Olvidaste tu contraseña?</strong>, que manda un enlace por correo (requiere el <a href="/docs/configuracion.html">correo saliente</a> configurado).</p>
+<div class="callout warn">
+<p><strong>El rol «staff» de las versiones anteriores ya no existe.</strong> Un usuario que lo conservara puede ingresar pero no tiene ninguna pantalla asignada: el sistema le avisa que pida a un administrador un rol. Editalo y asignale el que corresponda.</p>
 </div>
 <div class="docs-nav-footer">
-<a href="/docs/reportes.html">← Reportes</a>
-<span></span>
+<a href="/docs/tesoreria-y-egresos.html">← Tesorería y egresos</a>
+<a href="/docs/logs.html">Logs del sistema →</a>
 </div>
   </main>
 </div>

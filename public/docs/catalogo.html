@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo — Documentación VentaLibra</title>
+  <meta name="description" content="Productos y servicios, códigos, variantes, marca de vencimiento, reposición y etiquetas de góndola.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,43 +29,117 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html" class="active">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Catálogo</h1>
-<p class="docs-lead">Unidades, productos, códigos de barra y variantes — la base de todo lo demás en VentaLibra.</p>
-<h2>Unidades</h2>
-<p>Definí las unidades con las que vendés (unidad, kilogramo, litro). Una unidad puede marcarse como "vendible por fracción" para productos pesables (fiambres, verdulería) — ahí las cantidades admiten decimales.</p>
+<p class="docs-lead">Productos y servicios, con sus códigos, variantes, marca de vencimiento y parámetros de reposición: la base de todo lo demás.</p>
+<h2>Unidades y categorías</h2>
+<p>Antes de cargar productos, revisá en <strong>Administración → Configuración</strong> las secciones <strong>Unidades de medida</strong> y <strong>Categorías</strong>.</p>
+<ul>
+<li><strong>Unidades:</strong> cada una tiene <strong>Código</strong>, <strong>Nombre</strong>, <strong>Fracción</strong> (si admite cantidades con decimales, como kilogramo o litro) y <strong>Decimales</strong>. Agregás una con <strong>+ Nueva unidad</strong>.</li>
+<li><strong>Categorías:</strong> se agregan con <strong>+ Nueva categoría</strong> y se pueden desactivar. Un producto sólo puede llevar una categoría que exista y esté activa.</li>
+</ul>
 <h2>Productos</h2>
-<p>Cargá nombre, unidad, categoría y precio de venta por defecto. Este precio es el que se usa si no hay una <a href="/docs/listas-de-precio.html">lista de precio</a> configurada para ese producto.</p>
-<h2>Códigos de barra</h2>
-<p>Agregá uno o más códigos de barra a cada producto desde su ficha. En el <a href="/docs/punto-de-venta.html">punto de venta</a>, escanear un código resuelve el producto exacto al instante.</p>
-<h2>Variantes de talle y color</h2>
-<p>Si vendés indumentaria, cada producto puede tener variantes (por ejemplo, talle S/M/L, color). <strong>Cada variante lleva su propio stock</strong>, completamente independiente del resto.</p>
-<div class="callout">
-<p><strong>Tip:</strong> si un producto no necesita variantes (por ejemplo, un producto de almacén), simplemente no cargues ninguna — funciona igual que antes.</p>
+<p>En <strong>Catálogo y precios → Productos</strong> se ve la lista, con buscador (por nombre, código o categoría) y el stock total de cada producto sumando todos los depósitos.</p>
+<h3>Crear un producto</h3>
+<ol class="step-list">
+<li>Tocá <strong>Nuevo producto</strong>.</li>
+<li>Completá <strong>Nombre</strong> (obligatorio), <strong>Código</strong> (el de barras o uno interno; podés dejarlo vacío y agregar códigos después), <strong>Categoría</strong> y <strong>Unidad</strong>.</li>
+<li>Elegí el <strong>Tipo</strong>: <strong>Producto</strong> o <strong>Servicio</strong>.</li>
+<li>Cargá el <strong>Precio de venta</strong> y el <strong>Precio de costo</strong>. Con ambos, el sistema muestra el <strong>Margen</strong> en porcentaje.</li>
+<li>Completá el <strong>Stock mínimo</strong> si querés que el sistema avise cuando baje de ahí (cero es «no me avises»).</li>
+<li>Opcionales: <strong>Descripción</strong>, la marca <strong>Vence</strong> y los datos de <strong>Reposición sugerida</strong> (más abajo).</li>
+<li>Tocá <strong>Crear producto</strong>.</li>
+</ol>
+<p>Para cambiar algo, usá <strong>Editar producto</strong> en su fila.</p>
+<h3>Lo que conviene saber</h3>
+<ul>
+<li><strong>Producto o servicio se elige al crear y no se cambia.</strong> Un servicio (flete, instalación) se vende como cualquier otro pero no tiene inventario ni lotes.</li>
+<li><strong>La unidad se bloquea</strong> cuando el producto ya tiene movimientos de stock, ventas o compras: cambiarla cambiaría el significado de todo lo registrado.</li>
+<li><strong>Un producto no se elimina: se desactiva</strong> con <strong>Producto activo</strong>. Desactivado deja de ofrecerse en la búsqueda del POS, pero conserva todo su historial.</li>
+<li><strong>El código no se repite.</strong> Si ya existe, el sistema avisa <kbd>Ya existe un producto con el código «…»</kbd> y no guarda nada.</li>
+<li><strong>El costo es reservado:</strong> sólo lo ven el administrador y el encargado. Para los demás roles el sistema ni siquiera lo recibe. Ver <a href="/docs/usuarios-roles.html">Usuarios y roles</a>.</li>
+<li>Precios y costos no pueden ser negativos.</li>
+</ul>
+<h2>Códigos y variantes</h2>
+<p>En la fila del producto, <strong>Gestionar códigos y variantes</strong> abre dos secciones.</p>
+<h3>Códigos</h3>
+<p>Un producto puede tener varios códigos, cada uno con su <strong>Tipo</strong>: <kbd>Interno</kbd>, <kbd>Código de barras</kbd>, <kbd>SKU</kbd>, <kbd>Balanza</kbd> u <kbd>Otro</kbd>. Se agregan con <strong>Agregar</strong>. Escanear cualquiera de ellos en el <a href="/docs/punto-de-venta.html">POS</a> resuelve el producto. El tipo <kbd>Balanza</kbd> es el que usan las etiquetas de la <a href="/docs/balanza.html">balanza</a>.</p>
+<h3>Variantes de talle y color</h3>
+<ol class="step-list">
+<li>En <strong>Variantes (talle/color)</strong> escribí el <strong>SKU</strong> y el <strong>Nombre</strong> (por ejemplo, <kbd>M / Azul</kbd>).</li>
+<li>Tocá <strong>Agregar</strong>. Repetí por cada variante.</li>
+</ol>
+<ul>
+<li><strong>Cada venta de una variante queda registrada con su variante</strong>: el sistema sabe cuánto salió de cada talle o color. La pantalla de <a href="/docs/stock-inventario.html">Stock</a> muestra el total del producto, sumando todas sus variantes.</li>
+<li>Las variantes <strong>comparten el precio del producto</strong>: no tienen precio propio. Una promoción o un quiebre por cantidad del producto alcanza a todas, y sus unidades se suman para el quiebre.</li>
+<li>En el POS, al agregar un producto con variantes, el sistema pregunta cuál. Si escaneás el SKU de una variante, entra directo.</li>
+<li>Si el producto no necesita variantes, no cargues ninguna.</li>
+</ul>
+<h2>Productos que vencen</h2>
+<p>Activá <strong>Vence (maneja lotes y fecha de vencimiento)</strong> en el producto perecedero. Desde ese momento se le pide lote y fecha al recibir mercadería, las salidas descuentan del lote que vence primero, el POS avisa si vendés algo vencido o por vencer, y aparece en <strong>Vencimientos y lotes</strong>. Ver <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>.</p>
+<p>Marcar o desmarcar un producto es decisión del encargado o del administrador. Un servicio no puede vencer.</p>
+<h2>Reposición sugerida</h2>
+<p>Si tu rol lo permite, el formulario del producto trae el bloque <strong>Reposición sugerida</strong>, con los datos propios de ese producto que usa la <a href="/docs/reposicion.html">reposición</a>:</p>
+<table class="docs-table">
+<thead><tr><th>Campo</th><th>Qué hace</th></tr></thead>
+<tbody>
+<tr><td><strong>Stock mínimo</strong></td><td>El piso global: si lo que hay más lo que viene en camino queda por debajo, el sistema sugiere pedir lo que falta.</td></tr>
+<tr><td><strong>Mínimo por sucursal</strong> (<kbd>Mínimo en &lt;sucursal&gt;</kbd>)</td><td>Un mínimo propio para cada sucursal. Vacío, usa el global. Aparece al editar, con dos o más sucursales.</td></tr>
+<tr><td><strong>Plazo de entrega (días)</strong></td><td>Cuánto tarda este producto en llegar (de 1 a 180). Vacío, rige el plazo general de la pantalla de reposición.</td></tr>
+<tr><td><strong>Stock máximo</strong></td><td>El techo: lo que hay más lo que ya viene en camino no pasa de acá. No puede ser menor que el stock mínimo. Vacío, sin tope.</td></tr>
+<tr><td><strong>Proveedor habitual</strong></td><td>A quién se le compra normalmente. Es una preferencia: sirve para filtrar la reposición y para armar las órdenes de compra en borrador, una por proveedor.</td></tr>
+</tbody>
+</table>
+<h2>Etiquetas de góndola</h2>
+<p>Cuando cambian los precios, el cartel de la góndola tiene que cambiar con ellos. Desde <strong>Catálogo y precios → Productos → Etiquetas</strong>:</p>
+<ol class="step-list">
+<li>Buscá los productos con <strong>Buscar producto</strong> o filtrá por <strong>Categoría</strong>.</li>
+<li>En <strong>Precio</strong> elegí de dónde sale el precio: <strong>Precio de venta del producto</strong> o una lista. La lista predeterminada es la que cobra el POS.</li>
+<li>Tildá los productos, o tocá <strong>Elegir los N que se ven</strong>. <strong>Quitar la selección</strong> los destilda.</li>
+<li>Tocá <strong>Ver e imprimir</strong>, elegí <strong>Columnas</strong> (2, 3 o 4) y tocá <strong>Imprimir</strong>.</li>
+</ol>
+<p>Sale una hoja A4 para recortar, con nombre, precio y código de barras de cada producto. Un producto sin código sale igual, sin barras.</p>
+<div class="callout warn">
+<p><strong>La etiqueta dice el precio base de la lista.</strong> No resuelve los quiebres por cantidad ni las promociones por fecha, que dependen de cuándo y cuánto se compre. Tampoco está pensada para una impresora de rollo.</p>
 </div>
+<h2>Quién puede qué</h2>
+<ul>
+<li><strong>Administrador y encargado:</strong> crean y editan productos.</li>
+<li><strong>Vendedor:</strong> consulta el catálogo, sin costos.</li>
+<li><strong>Depósito:</strong> no crea ni edita el producto, pero carga su reposición (plazo, stock máximo, proveedor y mínimos por sucursal) sin ver el costo.</li>
+<li><strong>Cajero:</strong> busca productos desde el POS, no tiene la pantalla de Productos.</li>
+</ul>
 <div class="docs-nav-footer">
-<a href="/docs/primeros-pasos.html">← Primeros pasos</a>
+<a href="/docs/caja.html">← Caja y turnos</a>
 <a href="/docs/listas-de-precio.html">Listas de precio →</a>
 </div>
   </main>

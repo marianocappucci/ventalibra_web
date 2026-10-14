@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stock e inventario — Documentación VentaLibra</title>
+  <meta name="description" content="Stock por depósito, ajustes, movimientos y transferencias.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,47 +29,109 @@
     <div class="docs-sidebar-section">Inicio</div>
     <a href="/docs/">Introducción</a>
     <a href="/docs/primeros-pasos.html">Primeros pasos</a>
-    <div class="docs-sidebar-section">Catálogo</div>
+    <div class="docs-sidebar-section">Mostrador</div>
+    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/balanza.html">Balanza</a>
+    <a href="/docs/mercadopago.html">Cobro con QR (MercadoPago)</a>
+    <a href="/docs/ventas.html">Ventas y devoluciones</a>
+    <a href="/docs/caja.html">Caja y turnos</a>
+    <div class="docs-sidebar-section">Catálogo y precios</div>
     <a href="/docs/catalogo.html">Catálogo</a>
     <a href="/docs/listas-de-precio.html">Listas de precio</a>
-    <div class="docs-sidebar-section">Ventas</div>
-    <a href="/docs/punto-de-venta.html">Punto de venta</a>
+    <a href="/docs/promociones.html">Promociones</a>
+    <div class="docs-sidebar-section">Inventario</div>
     <a href="/docs/stock-inventario.html" class="active">Stock e inventario</a>
-    <div class="docs-sidebar-section">Compras</div>
+    <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>
+    <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>
+    <a href="/docs/reposicion.html">Reposición sugerida</a>
+    <div class="docs-sidebar-section">Compras y clientes</div>
     <a href="/docs/compras-proveedores.html">Compras a proveedores</a>
     <a href="/docs/clientes-proveedores.html">Clientes y proveedores</a>
     <a href="/docs/cuenta-corriente.html">Cuentas corrientes</a>
-    <div class="docs-sidebar-section">Caja y facturación</div>
-    <a href="/docs/caja.html">Caja</a>
+    <div class="docs-sidebar-section">Facturación y reportes</div>
     <a href="/docs/facturacion.html">Facturación electrónica</a>
-    <div class="docs-sidebar-section">Reportes</div>
     <a href="/docs/reportes.html">Reportes</a>
+    <a href="/docs/tesoreria-y-egresos.html">Tesorería y egresos</a>
     <div class="docs-sidebar-section">Cuenta</div>
-    <a href="/docs/usuarios-roles.html">Usuarios, roles y precio</a>
+    <a href="/docs/usuarios-roles.html">Usuarios y roles</a>
     <a href="/docs/logs.html">Logs del sistema</a>
     <a href="/docs/configuracion.html">Configuración</a>
   </nav>
 
   <main class="docs-content">
     <h1>Stock e inventario</h1>
-<p class="docs-lead">El stock se ajusta manualmente al principio y después se actualiza solo con cada venta y recepción de compra.</p>
-<h2>Ajuste manual</h2>
-<p>Andá a <strong>Stock → Ajuste</strong> para cargar el stock inicial o corregir una diferencia (por ejemplo, tras un conteo físico). Si el producto tiene variantes, el ajuste se hace <strong>por variante</strong> — cada una lleva su propio stock.</p>
-<h2>Movimientos automáticos</h2>
+<p class="docs-lead">Cuánto hay de cada producto y en qué depósito. Se carga una vez con el stock inicial y después se actualiza solo con cada venta, compra y transferencia.</p>
+<h2>Cómo se cuenta el stock</h2>
+<ul>
+<li><strong>El stock vive en los depósitos</strong>, no en las sucursales. Cada sucursal tiene uno o más depósitos y uno de ellos es el de venta. Ver <a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos</a>.</li>
+<li>El stock de un producto es la <strong>suma de sus movimientos</strong>: no se edita directamente. Un ajuste agrega un movimiento que corrige la diferencia, y queda en el historial.</li>
+<li>El sistema <strong>no impide vender más de lo que figura</strong>. Si el stock queda en negativo se ve en rojo: es la señal de que falta cargar una compra o hacer un ajuste.</li>
+</ul>
+<h2>La pantalla Stock</h2>
+<p>En <strong>Inventario → Stock</strong> hay una fila por producto con una columna por depósito (incluidos los que están en cero, a propósito: la pregunta es «¿de dónde saco esto?»), el total, el mínimo y el estado.</p>
 <table class="docs-table">
-<thead><tr><th>Evento</th><th>Efecto en el stock</th></tr></thead>
+<thead><tr><th>Estado</th><th>Cuándo aparece</th></tr></thead>
 <tbody>
-<tr><td>Venta confirmada</td><td>Descuenta stock del producto/variante vendido</td></tr>
-<tr><td>Recepción de compra confirmada</td><td>Suma stock y actualiza el costo (último costo pagado)</td></tr>
+<tr><td><kbd>OK</kbd></td><td>Hay stock y está por encima del mínimo</td></tr>
+<tr><td><kbd>Bajo mínimo</kbd></td><td>El total es igual o menor al <strong>Stock mínimo</strong> del producto</td></tr>
+<tr><td><kbd>Sin stock</kbd></td><td>El total es cero o negativo</td></tr>
+</tbody>
+</table>
+<ul>
+<li>Arriba, un aviso cuenta los productos con stock bajo el mínimo.</li>
+<li><strong>Buscar producto</strong> filtra por nombre y <strong>Sólo los que tienen stock</strong> esconde los que están en cero.</li>
+<li>En pantallas angostas cada producto es una tarjeta, con <strong>Ordenar por</strong> nombre o por stock total.</li>
+</ul>
+<h2>Ajustar el stock</h2>
+<p>Sirve para cargar el stock inicial o corregir una diferencia, por ejemplo tras un conteo físico. Es de quien maneja la mercadería: administrador, encargado y depósito. El vendedor ve el stock pero no ajusta.</p>
+<ol class="step-list">
+<li>En la fila del producto, tocá <strong>Ajustar stock</strong>.</li>
+<li>Elegí el <strong>Depósito</strong>. <strong>El ajuste siempre va a un depósito</strong>; con varios depósitos activos el sistema no adivina cuál.</li>
+<li>Elegí el <strong>Tipo de ajuste</strong>:
+<ul>
+<li><strong>Fijar en…</strong>: el stock <em>nuevo</em> de ese depósito. Escribís lo que contaste y el sistema calcula la diferencia. No puede ser negativo.</li>
+<li><strong>Entrada</strong>: suma una <strong>Cantidad a ingresar</strong>.</li>
+<li><strong>Salida</strong>: resta una <strong>Cantidad a retirar</strong>.</li>
+</ul>
+</li>
+<li>Revisá la <strong>Fecha</strong> y escribí una <strong>Referencia</strong> (por ejemplo, «conteo físico» o «rotura»).</li>
+<li>Mirá el stock resultante que muestra el diálogo y tocá <strong>Guardar movimiento</strong>.</li>
+</ol>
+<div class="callout">
+<p><strong>Productos que vencen:</strong> una salida o un «Fijar en…» que baja el stock descuenta del lote que vence primero. Una entrada o un ajuste hacia arriba entra «sin lote». Para sumar mercadería con su lote y fecha usá <strong>Cargar stock con lote</strong> en <a href="/docs/vencimientos-y-lotes.html">Vencimientos y lotes</a>.</p>
+</div>
+<h2>Historial de movimientos</h2>
+<p><strong>Ver movimientos</strong> en la fila de un producto, o <strong>Historial de movimientos</strong> arriba, muestra cada movimiento con fecha, producto, tipo (<kbd>Entrada</kbd>, <kbd>Salida</kbd>, <kbd>Ajuste</kbd>, <kbd>Venta</kbd>, <kbd>Merma</kbd>), cantidad, stock resultante, depósito y referencia. Se filtra por <strong>Producto</strong> y por <strong>Desde</strong> y <strong>Hasta</strong>.</p>
+<p>Un movimiento nunca se edita: se agrega otro que lo compensa. Eso es lo que hace confiable el stock.</p>
+<h2>Qué mueve el stock solo</h2>
+<table class="docs-table">
+<thead><tr><th>Evento</th><th>Efecto</th></tr></thead>
+<tbody>
+<tr><td>Venta cobrada</td><td>Resta del depósito de venta de la sucursal de la caja, por lote que vence primero si el producto vence. Un servicio no resta.</td></tr>
+<tr><td>Venta anulada</td><td>Repone en el depósito del que salió, al lote de origen</td></tr>
+<tr><td>Devolución</td><td>Repone en el depósito elegido. Un producto que vence va a merma</td></tr>
+<tr><td>Recepción de una compra</td><td>Suma en el depósito de destino, con lote y vencimiento si se cargaron, y actualiza el costo del producto</td></tr>
+<tr><td>Transferencia</td><td>Resta en el origen y suma en el destino</td></tr>
 <tr><td>Ajuste manual</td><td>Suma o resta según lo que cargues</td></tr>
 </tbody>
 </table>
-<div class="callout">
-<p><strong>Tip:</strong> el <a href="/docs/reportes.html">reporte de stock</a> te muestra el stock actual de todo el catálogo y marca los productos con stock bajo o en cero.</p>
-</div>
+<h2>Transferir entre depósitos</h2>
+<p>Para mover mercadería de un depósito a otro, de la misma sucursal o de otra: <strong>Inventario → Stock → Transferencias</strong>. Es del encargado, del depósito y del administrador.</p>
+<ol class="step-list">
+<li>Elegí el <strong>Producto</strong>. El sistema muestra el <strong>Stock disponible por depósito</strong>.</li>
+<li>Elegí el <strong>Depósito origen</strong> y el <strong>Depósito destino</strong> (el marcado con ★ es el de la instancia por defecto).</li>
+<li>Escribí la <strong>Cantidad</strong>, la <strong>Fecha</strong> y, si querés, <strong>Observaciones</strong>.</li>
+<li>Tocá <strong>Confirmar transferencia</strong>.</li>
+</ol>
+<ul>
+<li>No hay estado «en tránsito»: al confirmar, el sistema ya cuenta la mercadería en el destino.</li>
+<li>Un producto que vence se transfiere por lote que vence primero, y <strong>el lote viaja con la mercadería</strong>.</li>
+<li>Abajo, <strong>Transferencias realizadas</strong> lista qué se movió, de dónde a dónde y cuándo.</li>
+<li>Pasar mercadería <em>entre sucursales</em> requiere el módulo de multisucursal, que viene incluido en el plan único.</li>
+</ul>
 <div class="docs-nav-footer">
-<a href="/docs/punto-de-venta.html">← Punto de venta</a>
-<a href="/docs/compras-proveedores.html">Compras a proveedores →</a>
+<a href="/docs/promociones.html">← Promociones</a>
+<a href="/docs/sucursales-y-depositos.html">Sucursales y depósitos →</a>
 </div>
   </main>
 </div>
